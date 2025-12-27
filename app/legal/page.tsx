@@ -1,8 +1,6 @@
-"use client";
+    "use client";
 
 import { useEffect, useRef, useState } from "react";
-import React, { ReactNode } from "react";
-
 import {
   motion,
   useMotionValue,
@@ -12,6 +10,9 @@ import {
 import { ChevronDown, Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link"; // Add this import
+import PhoneInput from "react-phone-input-2";
+import { ReactNode } from "react";
+
 import {
   Pizza,
   ShoppingCart,
@@ -203,34 +204,13 @@ export default function Home() {
   }, []);
 
   // title
-const [active, setActive] = useState<string | null>(null);
-
+  const [active, setActive] = useState("");
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
   const [activeFeatureTab, setActiveFeatureTab] = useState("features");
   const [activeSolutionsTab, setActiveSolutionsTab] = useState("industry");
-
-  const features = [
-    "Web Development",
-    "Mobile App Development",
-    "UI/UX Design",
-    "Digital Marketing",
-    "Custom Solutions",
-  ];
-
-  function Pill({ text, style }: { text: string; style: string }) {
-    return (
-      <div
-        className={`absolute ${style}
-        bg-white border border-[#B7A1FF]
-        text-gray-800 px-5 py-2 rounded-full
-        shadow-sm text-sm font-medium`}
-      >
-        {text}
-      </div>
-    );
-  }
+  const [activePlan, setActivePlan] = useState<number | null>(null);
 
   const industries = [
     {
@@ -263,7 +243,6 @@ const [active, setActive] = useState<string | null>(null);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("industry");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
 
   // const pricingMenu = ["Plans", "Compare Plans", "Enterprise"];
 
@@ -549,6 +528,7 @@ const [active, setActive] = useState<string | null>(null);
       { title: "Business Analysis", icon: <PieChart size={22} /> },
     ],
   };
+
   const resourceTabs: Record<string, { title: string; icon: ReactNode }[]> = {
     "About Us": [
       { title: "Who We Are", icon: <Users size={22} /> },
@@ -565,8 +545,209 @@ const [active, setActive] = useState<string | null>(null);
       { title: "Deonde Vs Others", icon: <Zap size={22} /> },
     ],
   };
+  const countries = [
+    { name: "Afghanistan", code: "+93", flag: "🇦🇫" },
+    { name: "Albania", code: "+355", flag: "🇦🇱" },
+    { name: "Algeria", code: "+213", flag: "🇩🇿" },
+    { name: "Andorra", code: "+376", flag: "🇦🇩" },
+    { name: "Angola", code: "+244", flag: "🇦🇴" },
+    { name: "Antigua and Barbuda", code: "+1 268", flag: "🇦🇬" },
+    { name: "Argentina", code: "+54", flag: "🇦🇷" },
+    { name: "Armenia", code: "+374", flag: "🇦🇲" },
+    { name: "Australia", code: "+61", flag: "🇦🇺" },
+    { name: "Austria", code: "+43", flag: "🇦🇹" },
+    { name: "Azerbaijan", code: "+994", flag: "🇦🇿" },
+    { name: "Bahamas", code: "+1 242", flag: "🇧🇸" },
+    { name: "Bahrain", code: "+973", flag: "🇧🇭" },
+    { name: "Bangladesh", code: "+880", flag: "🇧🇩" },
+    { name: "Barbados", code: "+1 246", flag: "🇧🇧" },
+    { name: "Belarus", code: "+375", flag: "🇧🇾" },
+    { name: "Belgium", code: "+32", flag: "🇧🇪" },
+    { name: "Belize", code: "+501", flag: "🇧🇿" },
+    { name: "Benin", code: "+229", flag: "🇧🇯" },
+    { name: "Bhutan", code: "+975", flag: "🇧🇹" },
+    { name: "Bolivia", code: "+591", flag: "🇧🇴" },
+    { name: "Bosnia & Herzegovina", code: "+387", flag: "🇧🇦" },
+    { name: "Botswana", code: "+267", flag: "🇧🇼" },
+    { name: "Brazil", code: "+55", flag: "🇧🇷" },
+    { name: "Brunei", code: "+673", flag: "🇧🇳" },
+    { name: "Bulgaria", code: "+359", flag: "🇧🇬" },
+    { name: "Burkina Faso", code: "+226", flag: "🇧🇫" },
+    { name: "Burundi", code: "+257", flag: "🇧🇮" },
+    { name: "Cambodia", code: "+855", flag: "🇰🇭" },
+    { name: "Cameroon", code: "+237", flag: "🇨🇲" },
+    { name: "Canada", code: "+1", flag: "🇨🇦" },
+    { name: "Cape Verde", code: "+238", flag: "🇨🇻" },
+    { name: "Central African Republic", code: "+236", flag: "🇨🇫" },
+    { name: "Chad", code: "+235", flag: "🇹🇩" },
+    { name: "Chile", code: "+56", flag: "🇨🇱" },
+    { name: "China", code: "+86", flag: "🇨🇳" },
+    { name: "Colombia", code: "+57", flag: "🇨🇴" },
+    { name: "Comoros", code: "+269", flag: "🇰🇲" },
+    { name: "Congo (Brazzaville)", code: "+242", flag: "🇨🇬" },
+    { name: "Congo (Kinshasa)", code: "+243", flag: "🇨🇩" },
+    { name: "Costa Rica", code: "+506", flag: "🇨🇷" },
+    { name: "Croatia", code: "+385", flag: "🇭🇷" },
+    { name: "Cuba", code: "+53", flag: "🇨🇺" },
+    { name: "Cyprus", code: "+357", flag: "🇨🇾" },
+    { name: "Czech Republic", code: "+420", flag: "🇨🇿" },
+    { name: "Denmark", code: "+45", flag: "🇩🇰" },
+    { name: "Djibouti", code: "+253", flag: "🇩🇯" },
+    { name: "Dominica", code: "+1 767", flag: "🇩🇲" },
+    { name: "Dominican Republic", code: "+1 849", flag: "🇩🇴" },
+    { name: "Ecuador", code: "+593", flag: "🇪🇨" },
+    { name: "Egypt", code: "+20", flag: "🇪🇬" },
+    { name: "El Salvador", code: "+503", flag: "🇸🇻" },
+    { name: "Equatorial Guinea", code: "+240", flag: "🇬🇶" },
+    { name: "Eritrea", code: "+291", flag: "🇪🇷" },
+    { name: "Estonia", code: "+372", flag: "🇪🇪" },
+    { name: "Eswatini", code: "+268", flag: "🇸🇿" },
+    { name: "Ethiopia", code: "+251", flag: "🇪🇹" },
+    { name: "Fiji", code: "+679", flag: "🇫🇯" },
+    { name: "Finland", code: "+358", flag: "🇫🇮" },
+    { name: "France", code: "+33", flag: "🇫🇷" },
+    { name: "Gabon", code: "+241", flag: "🇬🇦" },
+    { name: "Gambia", code: "+220", flag: "🇬🇲" },
+    { name: "Georgia", code: "+995", flag: "🇬🇪" },
+    { name: "Germany", code: "+49", flag: "🇩🇪" },
+    { name: "Ghana", code: "+233", flag: "🇬🇭" },
+    { name: "Greece", code: "+30", flag: "🇬🇷" },
+    { name: "Grenada", code: "+1 473", flag: "🇬🇩" },
+    { name: "Guatemala", code: "+502", flag: "🇬🇹" },
+    { name: "Guinea", code: "+224", flag: "🇬🇳" },
+    { name: "Guinea-Bissau", code: "+245", flag: "🇬🇼" },
+    { name: "Guyana", code: "+592", flag: "🇬🇾" },
+    { name: "Haiti", code: "+509", flag: "🇭🇹" },
+    { name: "Honduras", code: "+504", flag: "🇭🇳" },
+    { name: "Hungary", code: "+36", flag: "🇭🇺" },
+    { name: "Iceland", code: "+354", flag: "🇮🇸" },
+    { name: "India", code: "+91", flag: "🇮🇳" },
+    { name: "Indonesia", code: "+62", flag: "🇮🇩" },
+    { name: "Iran", code: "+98", flag: "🇮🇷" },
+    { name: "Iraq", code: "+964", flag: "🇮🇶" },
+    { name: "Ireland", code: "+353", flag: "🇮🇪" },
+    { name: "Israel", code: "+972", flag: "🇮🇱" },
+    { name: "Italy", code: "+39", flag: "🇮🇹" },
+    { name: "Jamaica", code: "+1 876", flag: "🇯🇲" },
+    { name: "Japan", code: "+81", flag: "🇯🇵" },
+    { name: "Jordan", code: "+962", flag: "🇯🇴" },
+    { name: "Kazakhstan", code: "+7 7", flag: "🇰🇿" },
+    { name: "Kenya", code: "+254", flag: "🇰🇪" },
+    { name: "Kiribati", code: "+686", flag: "🇰🇮" },
+    { name: "Kuwait", code: "+965", flag: "🇰🇼" },
+    { name: "Kyrgyzstan", code: "+996", flag: "🇰🇬" },
+    { name: "Laos", code: "+856", flag: "🇱🇦" },
+    { name: "Latvia", code: "+371", flag: "🇱🇻" },
+    { name: "Lebanon", code: "+961", flag: "🇱🇧" },
+    { name: "Lesotho", code: "+266", flag: "🇱🇸" },
+    { name: "Liberia", code: "+231", flag: "🇱🇷" },
+    { name: "Libya", code: "+218", flag: "🇱🇾" },
+    { name: "Liechtenstein", code: "+423", flag: "🇱🇮" },
+    { name: "Lithuania", code: "+370", flag: "🇱🇹" },
+    { name: "Luxembourg", code: "+352", flag: "🇱🇺" },
+    { name: "Madagascar", code: "+261", flag: "🇲🇬" },
+    { name: "Malawi", code: "+265", flag: "🇲🇼" },
+    { name: "Malaysia", code: "+60", flag: "🇲🇾" },
+    { name: "Maldives", code: "+960", flag: "🇲🇻" },
+    { name: "Mali", code: "+223", flag: "🇲🇱" },
+    { name: "Malta", code: "+356", flag: "🇲🇹" },
+    { name: "Marshall Islands", code: "+692", flag: "🇲🇭" },
+    { name: "Mauritania", code: "+222", flag: "🇲🇷" },
+    { name: "Mauritius", code: "+230", flag: "🇲🇺" },
+    { name: "Mexico", code: "+52", flag: "🇲🇽" },
+    { name: "Micronesia", code: "+691", flag: "🇫🇲" },
+    { name: "Moldova", code: "+373", flag: "🇲🇩" },
+    { name: "Monaco", code: "+377", flag: "🇲🇨" },
+    { name: "Mongolia", code: "+976", flag: "🇲🇳" },
+    { name: "Montenegro", code: "+382", flag: "🇲🇪" },
+    { name: "Morocco", code: "+212", flag: "🇲🇦" },
+    { name: "Mozambique", code: "+258", flag: "🇲🇿" },
+    { name: "Myanmar", code: "+95", flag: "🇲🇲" },
+    { name: "Namibia", code: "+264", flag: "🇳🇦" },
+    { name: "Nauru", code: "+674", flag: "🇳🇷" },
+    { name: "Nepal", code: "+977", flag: "🇳🇵" },
+    { name: "Netherlands", code: "+31", flag: "🇳🇱" },
+    { name: "New Zealand", code: "+64", flag: "🇳🇿" },
+    { name: "Nicaragua", code: "+505", flag: "🇳🇮" },
+    { name: "Niger", code: "+227", flag: "🇳🇪" },
+    { name: "Nigeria", code: "+234", flag: "🇳🇬" },
+    { name: "North Macedonia", code: "+389", flag: "🇲🇰" },
+    { name: "Norway", code: "+47", flag: "🇳🇴" },
 
-  
+    { name: "Oman", code: "+968", flag: "🇴🇲" },
+
+    { name: "Pakistan", code: "+92", flag: "🇵🇰" },
+    { name: "Palau", code: "+680", flag: "🇵🇼" },
+    { name: "Panama", code: "+507", flag: "🇵🇦" },
+    { name: "Papua New Guinea", code: "+675", flag: "🇵🇬" },
+    { name: "Paraguay", code: "+595", flag: "🇵🇾" },
+    { name: "Peru", code: "+51", flag: "🇵🇪" },
+    { name: "Philippines", code: "+63", flag: "🇵🇭" },
+    { name: "Poland", code: "+48", flag: "🇵🇱" },
+    { name: "Portugal", code: "+351", flag: "🇵🇹" },
+
+    { name: "Qatar", code: "+974", flag: "🇶🇦" },
+
+    { name: "Romania", code: "+40", flag: "🇷🇴" },
+    { name: "Russia", code: "+7", flag: "🇷🇺" },
+    { name: "Rwanda", code: "+250", flag: "🇷🇼" },
+
+    { name: "Saint Kitts and Nevis", code: "+1 869", flag: "🇰🇳" },
+    { name: "Saint Lucia", code: "+1 758", flag: "🇱🇨" },
+    { name: "Saint Vincent & Grenadines", code: "+1 784", flag: "🇻🇨" },
+    { name: "Samoa", code: "+685", flag: "🇼🇸" },
+    { name: "San Marino", code: "+378", flag: "🇸🇲" },
+    { name: "Saudi Arabia", code: "+966", flag: "🇸🇦" },
+    { name: "Senegal", code: "+221", flag: "🇸🇳" },
+    { name: "Serbia", code: "+381", flag: "🇷🇸" },
+    { name: "Seychelles", code: "+248", flag: "🇸🇨" },
+    { name: "Singapore", code: "+65", flag: "🇸🇬" },
+    { name: "Slovakia", code: "+421", flag: "🇸🇰" },
+    { name: "Slovenia", code: "+386", flag: "🇸🇮" },
+    { name: "South Africa", code: "+27", flag: "🇿🇦" },
+    { name: "South Korea", code: "+82", flag: "🇰🇷" },
+    { name: "Spain", code: "+34", flag: "🇪🇸" },
+    { name: "Sri Lanka", code: "+94", flag: "🇱🇰" },
+    { name: "Sudan", code: "+249", flag: "🇸🇩" },
+    { name: "Sweden", code: "+46", flag: "🇸🇪" },
+    { name: "Switzerland", code: "+41", flag: "🇨🇭" },
+
+    { name: "Thailand", code: "+66", flag: "🇹🇭" },
+    { name: "Turkey", code: "+90", flag: "🇹🇷" },
+    { name: "Tunisia", code: "+216", flag: "🇹🇳" },
+
+    { name: "Ukraine", code: "+380", flag: "🇺🇦" },
+    { name: "United Arab Emirates", code: "+971", flag: "🇦🇪" },
+    { name: "United Kingdom", code: "+44", flag: "🇬🇧" },
+    // { name: "United States", code: "+1", flag: "🇺🇸" },
+    { name: "Uruguay", code: "+598", flag: "🇺🇾" },
+
+    { name: "Uzbekistan", code: "+998", flag: "🇺🇿" },
+
+    { name: "Vatican City", code: "+379", flag: "🇻🇦" },
+    { name: "Venezuela", code: "+58", flag: "🇻🇪" },
+    { name: "Vietnam", code: "+84", flag: "🇻🇳" },
+
+    { name: "Yemen", code: "+967", flag: "🇾🇪" },
+
+    { name: "Zambia", code: "+260", flag: "🇿🇲" },
+    { name: "Zimbabwe", code: "+263", flag: "🇿🇼" },
+    // add more similarly if needed
+  ];
+
+  // API
+
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState(countries[0]);
+
+
 
   // Mobile Accordion Component
   function MobileAccordion({
@@ -608,7 +789,6 @@ const [active, setActive] = useState<string | null>(null);
       </div>
     );
   }
-  
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
@@ -617,7 +797,7 @@ const [active, setActive] = useState<string | null>(null);
         className="w-6 h-6 bg-purple-400 rounded-full fixed pointer-events-none z-50 shadow-lg"
         style={{ x: springX, y: springY }}
       />
-      <div
+      {/* <div
         className="absolute rounded-full blur-3xl z-0"
         style={{
           width: "889px",
@@ -628,7 +808,7 @@ const [active, setActive] = useState<string | null>(null);
             "radial-gradient(ellipse at center, rgba(107,90,255,0.6) 0%, rgba(107,90,255,0) 70%)",
           opacity: 0.45,
         }}
-      ></div>
+      ></div> */}
 
       {/* NAVBAR WITH MOBILE MENU */}
       {/* NAVBAR WITH FULL MOBILE RESPONSIVENESS */}
@@ -886,7 +1066,6 @@ const [active, setActive] = useState<string | null>(null);
             >
               <div className="max-w-3xl mx-auto pb-10">
                 {/* Services Accordion */}
-                {/* Services */}
                 <MobileAccordion title="Services">
                   <div className="space-y-4 pl-4">
                     {Object.keys(featureTabs).map((tab) => {
@@ -1011,730 +1190,144 @@ const [active, setActive] = useState<string | null>(null);
         </AnimatePresence>
       </nav>
 
-      {/* Glows behind navbar */}
+      {/* Section On TERMS */}
 
-      <div
-        className="absolute rounded-full blur-3xl z-0"
-        style={{
-          width: "520px",
-          height: "520px",
-          top: "180px",
-          right: "-180px",
-          background:
-            "radial-gradient(ellipse at center, rgba(107,90,255,0.6) 0%, rgba(107,90,255,0) 70%)",
-          opacity: 0.55,
-        }}
-      ></div>
 
-      {/* UPPER CURVE WITH ANIMATED DOTS */}
-      <div className="absolute inset-x-0 top-[65px] w-full h-[30vh] pointer-events-none z-0">
-        <svg
-          viewBox="0 0 1440 272"
-          preserveAspectRatio="none"
-          className="w-full h-full opacity-30"
-        >
-          <defs>
-            <linearGradient id="arcGrad1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="rgba(107, 90, 255, 0.32)" />
-              <stop offset="100%" stopColor="rgba(183, 161, 255, 0.12)" />
-            </linearGradient>
-          </defs>
 
-          <path
-            ref={upperPathRef}
-            id="hero-curve-upper"
-            d="M0 200 C450 -60 990 -60 1440 200"
-            stroke="url(#arcGrad1)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            fill="none"
-          />
 
-          <circle cx="0" cy="200" r="12" fill="#EBE5FD" opacity="0.8" />
-          <circle cx="1440" cy="200" r="12" fill="#EBE5FD" opacity="0.8" />
+     
 
-          <circle id="dot1" r="12" fill="#EBE5FD" opacity="0.8" />
-          <circle id="dot2" r="12" fill="#EBE5FD" opacity="0.8" />
-        </svg>
-      </div>
+  <div className="text-center mt-10 md:mt-16 px-4 md:px-6">
+  
+  {/* Heading */}
+  <h1 className="text-4xl md:text-5xl text-[#000] font-bold leading-tight relative z-20 mb-6">
+    Certificate of Incorporation
+  </h1>
 
-      {/* HERO SECTION WITH LOWER CURVE + ANIMATED DOTS */}
-      <section className="text-center mt-4 md:mt-20 px-4 md:px-6 relative z-10">
-        <div className="absolute inset-x-0 top-[60px] w-full h-[38vh] pointer-events-none opacity-30">
-          <svg
-            viewBox="0 0 1440 300"
-            preserveAspectRatio="none"
-            className="w-full h-full"
-          >
-            <defs>
-              <linearGradient id="arcGrad2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="rgba(107, 90, 255, 0.32)" />
-                <stop offset="100%" stopColor="rgba(183, 161, 255, 0.12)" />
-              </linearGradient>
-            </defs>
+  {/* Image with black border */}
+  <div className="inline-block border-1 border-black">
+    <Image
+      src="/images/certificate1.jpg"  // public folder path
+      alt="Certificate"
+      width={500}                     // image width
+      height={900}                    // image height
+      className="mx-auto block"
+    />
+  </div>
+</div>
 
-            <path
-              ref={lowerPathRef}
-              id="hero-curve-lower"
-              d="M0 220 C450 -60 990 -60 1440 220"
-              stroke="url(#arcGrad2)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              fill="none"
+     <div className="text-center mt-10 md:mt-16 px-4 md:px-6">
+         <h1 className="text-4xl md:text-5xl text-[#000] font-bold leading-tight relative z-20">
+             Pan Card
+                        </h1>
+     <Image
+      src="/images/pan.jpeg"  // public folder path
+      alt="pan-card"
+      width={500}                     // image width
+      height={900}                    // image height
+      className="mx-auto block"
+    />
+
+</div>
+       <div className="text-center mt-10 md:mt-16 px-4 md:px-6">
+  
+  {/* Heading */}
+  <h1 className="text-4xl md:text-5xl text-[#000] font-bold leading-tight relative z-20 mb-6">
+      GST Certificate 
+  </h1>
+
+  {/* Image with black border */}
+  <div className="inline-block border-1 border-black">
+    <Image
+      src="/images/gst.png"  // public folder path
+      alt="GST-Certificate"
+      width={500}                     // image width
+      height={900}                    // image height
+      className="mx-auto block"
+    />
+  </div>
+</div>
+
+ {/* Footer */}
+
+      <footer className="bg-[#6c5ce7] text-white pt-16">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Logo & Social */}
+          <div>
+            <img
+              src="/logo.png"
+              alt="2Digit Innovations"
+              className="w-44 mb-4"
             />
-
-            <circle cx="0" cy="220" r="12" fill="#EBE5FD" opacity="0.8" />
-            <circle cx="1440" cy="220" r="12" fill="#EBE5FD" opacity="0.8" />
-
-            <circle id="dot1-lower" r="12" fill="#EBE5FD" opacity="0.8" />
-            <circle id="dot2-lower" r="12" fill="#EBE5FD" opacity="0.8" />
-          </svg>
-        </div>
-
-        <h1 className="text-4xl md:text-5xl text-yellow-500 font-bold leading-tight relative z-20">
-          Custom {"  "}
-          <span className="text-black">
-            Software Development Company | Transform{" "}
-          </span>
-          <br className="hidden md:block" />
-          <span className="text-yellow-500">Your Digital Presence</span>
-        </h1>
-
-        <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-          We build powerful digital solutions for businesses across the UK, USA,
-          and India. From custom web development to mobile apps and digital
-          marketing, we turn your vision into reality with cutting-edge
-          technology. Whether you're a startup or an established enterprise, we
-          deliver results that drive your business forward.
-        </p>
-
-        <div className="flex justify-center mt-8">
-          <button className="relative bg-[#6B5AFF] text-white px-8 py-4 rounded-full shadow-md hover:bg-purple-700 transition text-lg z-10 flex items-center gap-2">
-            Get a free consultation
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5"
-            >
-              <path d="M7 17L17 7" />
-              <path d="M7 7h10v10" />
-            </svg>
-          </button>
-        </div>
-      </section>
-
-      {/* LOGO CAROUSEL CARD */}
-      {/* Carousel + Ellipse + Title */}
-      <div className="relative mt-24 px-6">
-        {/* Background Ellipse */}
-        <div
-          className="absolute rounded-full blur-3xl"
-          style={{
-            width: "680px",
-            height: "680px",
-            bottom: "-120px",
-            left: "-160px",
-            background:
-              "radial-gradient(ellipse at center, rgba(107,90,255,0.55) 0%, rgba(107,90,255,0) 75%)",
-            opacity: 0.55,
-            zIndex: 0,
-          }}
-        ></div>
-
-        {/* Carousel Card */}
-        <div className="relative z-10 flex justify-center">
-          <div
-            className="bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-10 w-full max-w-5xl border border-white/20"
-            style={{
-              boxShadow:
-                "0 -8px 20px -8px #00000040, 0 20px 30px -10px rgba(0,0,0,0.15)",
-            }}
-          >
-            <h2 className="text-center text-lg md:text-xl font-semibold mb-10 md:mb-12 text-gray-900">
-              Trusted by 250+ Global Partners & Delivery Startups Globally
-              Across UK, USA & India .Building Seamless Digital Experiences:
-              Your Vision, Our Expertise
-            </h2>
-
-            <div
-              id="logo-carousel"
-              className="flex gap-16 md:gap-32 items-center overflow-x-auto whitespace-nowrap no-scrollbar"
-            >
-              {[...Array(16)].map((_, i) => (
+            <h4 className="text-lg font-semibold mb-3">Follow</h4>
+            <div className="flex gap-3 flex-wrap">
+              {[
+                FaFacebookF,
+                FaInstagram,
+                FaLinkedinIn,
+                FaDribbble,
+                FaBehance,
+                FaPinterestP,
+              ].map((Icon, i) => (
                 <span
                   key={i}
-                  className="text-yellow-500 text-3xl md:text-4xl font-bold opacity-70 inline-block min-w-max"
+                  className="border border-white p-2 rounded-full hover:bg-white hover:text-[#6c5ce7] transition"
                 >
-                  Logo
+                  <Icon size={14} />
                 </span>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Title Section */}
-        <section className="py-8 md:py-16">
-          <div className="relative z-10 px-4">
-            <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-              Complete Digital Solutions for Your Business Growth
-            </h2>
-
-            {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
-            <div className="overflow-x-auto md:overflow-visible -mx-4 md:mx-0 scrollbar-hide">
-              <div
-                className="
-          flex
-          flex-nowrap
-          md:flex-wrap
-          md:justify-center
-          items-center
-          gap-3 md:gap-6
-          px-4
-          py-2
-          min-w-max
-          md:min-w-0
-        "
-              >
-                {features.map((feature) => {
-                  const isActive = active === feature;
-
-                  return (
-                    <button
-                      key={feature}
-                      onClick={() => setActive(feature)}
-                      // Optional hover effect only on desktop
-                      onMouseEnter={() =>
-                        window.innerWidth >= 768 && setActive(feature)
-                      }
-                      onMouseLeave={() =>
-                        window.innerWidth >= 768 && setActive(null)
-                      }
-                      className={`
-                flex-shrink-0
-                whitespace-nowrap
-                px-6 py-3
-                rounded-full
-                font-medium
-                text-base
-                transition-all duration-300 ease-out
-                shadow-sm
-                active:scale-95
-                focus:outline-none focus:ring-4 focus:ring-purple-300
-                md:hover:scale-105
-                ${
-                  isActive
-                    ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                    : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-                }
-              `}
-                      aria-pressed={isActive}
-                    >
-                      {feature}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* Online Ordering */}
-      <section className="font-montserrat py-16">
-        {/* ===== SECTION HEADING ===== */}
-        <div className="text-center px-4 max-w-4xl mx-auto mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-4">
-            Website Development Company – Unlocking the Power of the Web
-          </h2>
-
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Create powerful, fast-loading websites that convert visitors into
-            customers. We build custom websites using the latest technologies
-            like
-            <span className="font-medium text-gray-800">
-              {" "}
-              React, Next.js, and WordPress
-            </span>
-            . Whether you need an e-commerce store, business website, or web
-            application, we deliver solutions that work perfectly on all devices
-            and help your business grow online.
-          </p>
-        </div>
-
-        {/* ===== MOBILE VIEW ===== */}
-        <div className="md:hidden px-4">
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {[
-              "Custom Digital Solutions",
-              "Smart Business Automation",
-              "Customer-Centered Design",
-              "Secure & Reliable Systems",
-              "Scalable Growth Support",
-            ].map((item) => (
-              <span
-                key={item}
-                className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium"
-              >
-                {item}
-              </span>
-            ))}
+          {/* Services */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
+              <li>App Development</li>
+              <li>Web App Development</li>
+              <li>Eccomerce Development</li>
+              <li>Ready-Made App Solutions</li>
+              <li>UI And UX Designing</li>
+              <li>Custom Mobile Software Development</li>
+              <li>Emerging Technologies</li>
+              <li>Digital Marketing</li>
+              <li>Quality Assurance Testing</li>
+              <li>Devops Cloud Services</li>
+              <li>Maintanence Support </li>
+              <li>Consulting Services</li>
+            </ul>
           </div>
 
-          {/* Dashboard Card */}
-          <div className="flex justify-center">
-            <div className="bg-[#B7A1FF] rounded-2xl p-4 shadow-lg w-full max-w-sm">
-              <div className="bg-white rounded-xl p-4">
-                <h3 className="font-semibold mb-3 text-gray-900">Dashboard</h3>
-                <div className="h-32 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-sm font-medium">
-                  Dashboard Preview
-                </div>
-              </div>
-            </div>
+          {/* Quick Links */}
+                <div>
+            <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="#">Our Apps</Link>
+              </li>
+              <li>
+                <Link href="/clutch">Find us on Clutch</Link>
+              </li>
+              <li>
+                <Link href="/privacy">Privacy & Policy</Link>
+              </li>
+              <li>
+                <Link href="/shipping">Shipping & Delivery Policy</Link>
+              </li>
+              <li>
+                <Link href="/refund">Return & Refund Policy</Link>
+              </li>
+              <li>
+                <Link href="/term">Terms & Condition</Link>
+              </li>
+              <li>
+                <Link href="/faq">FAQs</Link>
+              </li>
+              <li>
+                <Link href="/legal">Legal</Link>
+              </li>
+            </ul>
           </div>
-        </div>
-
-        {/* ===== DESKTOP VIEW ===== */}
-        <div className="hidden md:flex relative max-w-6xl mx-auto justify-center">
-          {/* SVG Arch */}
-          <svg
-            viewBox="0 0 1200 400"
-            className="absolute top-0 w-full h-[400px]"
-            fill="none"
-          >
-            <path
-              d="M100 320 C 300 60, 900 60, 1100 320"
-              stroke="#D6CCFF"
-              strokeWidth="3"
-              fill="none"
-            />
-          </svg>
-
-          {/* Pills */}
-          <div className="absolute top-0 left-0 w-full h-[400px] pointer-events-none">
-            <Pill
-              text="Custom Digital Solutions"
-              style="left-[0%] top-[280px]"
-            />
-            <Pill
-              text="Smart Business Automation"
-              style="left-[18%] top-[160px]"
-            />
-            <Pill
-              text="Customer-Centered Design"
-              style="left-[42%] top-[105px]"
-            />
-            <Pill
-              text="Secure & Reliable Systems"
-              style="left-[66%] top-[160px]"
-            />
-            <Pill
-              text="Scalable Growth Support"
-              style="left-[84%] top-[280px]"
-            />
-          </div>
-
-          {/* Dashboard */}
-          <div className="relative z-10 mt-64 bg-[#B7A1FF] rounded-3xl p-6 shadow-xl">
-            <div className="bg-white rounded-2xl p-6 w-[520px]">
-              <h3 className="font-semibold text-lg mb-4 text-gray-900">
-                Dashboard
-              </h3>
-              <div className="h-40 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 font-medium">
-                Dashboard Preview
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Whom we serve */}
-      <section className="relative py-20 md:py-32 bg-white">
-        {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12 px-4">
-          <h2 className="text-2xl md:text-4xl font-bold mb-2">
-            Industries We Serve – From Startups to Enterprises
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg">
-            Discover Who Can Benefit from 2DigitInnovations
-          </p>
-        </div>
-
-        {/* Carousel */}
-        <div className="overflow-hidden px-4 md:px-6">
-          <div className="flex animate-marquee gap-4 md:gap-6">
-            {industries.concat(industries).map((item, i) => (
-              <div
-                key={i}
-                className="
-            flex-shrink-0
-            w-64 md:w-80
-            rounded-3xl
-            bg-[#CFCFCF]
-            overflow-hidden
-          "
-              >
-                {/* Image */}
-                <div className="h-36 md:h-44 bg-gray-300">
-                  <img
-                    // src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-4 md:p-5">
-                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Streamlining Title */}
-      <div className="text-center mt-10 md:mt-16 px-4 md:px-6">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-          Award-Winning Software Development Solutions Built for Growing
-          Businesses
-        </h2>
-        <p className="text-gray-600 text-base md:text-lg mb-6">
-          We combine technical expertise with creative thinking to deliver
-          solutions that actually work for your business. Our team has
-          successfully completed over 500 projects across various industries,
-          from small startups to large enterprises. We focus on understanding
-          your specific needs and building custom solutions that solve real
-          problems and drive measurable results.
-        </p>
-
-        {/* Key Service Highlights */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 text-left max-w-3xl mx-auto">
-          <div className="flex items-start gap-2">
-            <span className="text-green-500 font-bold text-xl">✓</span>
-            <p className="text-gray-700">
-              Digital Marketing - Grow your online presence with SEO, social
-              media, and paid advertising
-            </p>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="text-green-500 font-bold text-xl">✓</span>
-            <p className="text-gray-700">
-              Web Development - Build fast, secure, and scalable websites that
-              convert visitors
-            </p>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="text-green-500 font-bold text-xl">✓</span>
-            <p className="text-gray-700">
-              UI & UX Design - Create beautiful, user-friendly interfaces that
-              users love
-            </p>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="text-green-500 font-bold text-xl">✓</span>
-            <p className="text-gray-700">
-              App Development - Develop powerful mobile applications for iOS and
-              Android
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Success */}
-      <section className="relative py-20 md:py-32 bg-white">
-        {/* Heading */}
-        <div className="text-center max-w-4xl mx-auto mb-10 md:mb-12 px-4 md:px-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
-            What Our Clients Say About Our Development Services
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg">
-            Discover the experiences of our clients that inspire
-          </p>
-        </div>
-
-        {/* Carousel */}
-        <div className="overflow-hidden px-4 md:px-6">
-          <div className="flex animate-marquee gap-4 md:gap-6">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-72 sm:w-80 md:w-[400px] bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6"
-              >
-                {/* Testimonial */}
-                <p className="mb-4 text-gray-700 text-sm md:text-base leading-relaxed">
-                  <span className="text-xl md:text-2xl font-bold">“</span>I had
-                  the pleasure of working with 2 Digit Innovations for a
-                  React-Native development project, and I must say that his
-                  performance was exceptional. His skills in React-Native
-                  development were outstanding, and he demonstrated a strong
-                  understanding of the principles and best practices of mobile
-                  application development.{" "}
-                </p>
-
-                {/* Client Info */}
-                <div className="flex items-center justify-between mt-4">
-                  <div>
-                    <p className="font-bold text-sm md:text-lg">Jayen Ashar</p>
-                    <div className="flex gap-3 md:gap-4 mt-1">
-                      <div className="text-center">
-                        <p className="font-bold text-sm md:text-base">22</p>
-                        <p className="text-xs md:text-sm text-gray-500">
-                          Number Metrics
-                        </p>
-                      </div>
-                      <div className="text-center">
-                        <p className="font-bold text-sm md:text-base">22</p>
-                        <p className="text-xs md:text-sm text-gray-500">
-                          Number Metrics
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <img
-                    src="/assests/client.jpg"
-                    alt="Client"
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-
-            {/* Duplicate cards for seamless loop */}
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={`dup-${i}`}
-                className="flex-shrink-0 w-72 sm:w-80 md:w-[400px] bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6"
-              >
-                <p className="mb-4 text-gray-700 text-sm md:text-base leading-relaxed">
-                  <span className="text-xl md:text-2xl font-bold">“</span>
-                  The testimonial will go here. The testimonial will go here.
-                </p>
-
-                <div className="flex items-center justify-between mt-4">
-                  <div>
-                    <p className="font-bold text-sm md:text-lg">Client Name</p>
-                    <div className="flex gap-3 md:gap-4 mt-1">
-                      <div className="text-center">
-                        <p className="font-bold text-sm md:text-base">22</p>
-                        <p className="text-xs md:text-sm text-gray-500">
-                          Number Metrics
-                        </p>
-                      </div>
-                      <div className="text-center">
-                        <p className="font-bold text-sm md:text-base">22</p>
-                        <p className="text-xs md:text-sm text-gray-500">
-                          Number Metrics
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <img
-                    src="/assests/client.jpg"
-                    alt="Client"
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative bg-white rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 shadow-lg mb-16 overflow-hidden max-w-7xl mx-auto">
-        {/* Inner Purple Glow inside card */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-[#6B5AFF]/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-400/30 rounded-full blur-3xl"></div>
-        </div>
-
-        {/* Text Content */}
-        <div className="relative flex-1 z-10">
-          {/* Ellipse behind "Online" text */}
-          <div
-            className="pointer-events-none absolute z-0"
-            style={{
-              width: "373px",
-              height: "148px",
-              top: "-93px",
-              left: "590px",
-              backgroundColor: "rgba(183, 161, 255, 0.45)",
-              borderRadius: "50%",
-              filter: "blur(60px)",
-            }}
-          ></div>
-
-          <h2 className="relative text-3xl md:text-4xl font-bold mb-4 z-10">
-            Ready to Work Together <br /> on Your Next Project?
-          </h2>
-
-          <p className="text-gray-700 text-lg mb-6 z-10">
-            Have a project in mind? Let's bring it to life. Whether you need a
-            new website, mobile app, or complete digital transformation, we're
-            here to help. Get a free consultation and project quote within 24
-            hours.
-          </p>
-
-          {/* Ellipse behind the button */}
-          <div
-            className="pointer-events-none absolute z-0"
-            style={{
-              width: "148px",
-              height: "148px",
-              top: "246px",
-              left: "394px",
-              backgroundColor: "rgba(183, 161, 255, 0.45)",
-              borderRadius: "50%",
-              filter: "blur(60px)",
-            }}
-          ></div>
-
-          {/* Button on top */}
-          <button className="relative bg-[#6B5AFF] text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-[#5948CC] transition z-10">
-            Start Your Project Today
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5"
-            >
-              <path d="M7 17L17 7" />
-              <path d="M7 7h10v10" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Image / Logo */}
-        <div className="relative z-10 flex-shrink-0 w-72 h-72 flex items-center justify-center">
-          <div className="w-72 h-72 bg-white rounded-full shadow-md flex items-center justify-center">
-            <img
-              src="/assests/2digit.png"
-              alt="Logo"
-              className="w-64 h-64 object-contain"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-
-      <footer className="bg-[#6c5ce7] text-white pt-16">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-            {/* Logo & Social */}
-            <div>
-              <img
-                src="assests/2Digit.png"
-                alt="2Digit Innovations"
-                className="w-44 mb-4"
-              />
-              <h4 className="text-lg font-semibold mb-3">Follow</h4>
-              <div className="flex gap-3 flex-wrap">
-                {[
-                  FaFacebookF,
-                  FaInstagram,
-                  FaLinkedinIn,
-                  FaDribbble,
-                  FaBehance,
-                  FaPinterestP,
-                ].map((Icon, i) => (
-                  <span
-                    key={i}
-                    className="border border-white p-2 rounded-full hover:bg-white hover:text-[#6c5ce7] transition"
-                  >
-                    <Icon size={14} />
-                  </span>
-                ))}
-              </div>
-            </div>
-
-  {/* Services */}
-      <div>
-        <h4 className="text-xl font-semibold mb-4">Services</h4>
-        <ul className="space-y-2 text-sm">
-          {[
-            { name: "App Development", href: "/app-development" },
-            { name: "Web App Development", href: "/web-app-development" },
-            { name: "Ecommerce Development", href: "/ecommerce-development" },
-            { name: "Ready-Made App Solutions", href: "/ready-made-app-solutions" },
-            { name: "UI And UX Designing", href: "/ui-ux-designing" },
-            { name: "Custom Mobile Software Development", href: "/custom-mobile-software-development" },
-            { name: "Emerging Technologies", href: "/emerging-technologies" },
-            { name: "Digital Marketing", href: "/digital-marketing" },
-            { name: "Quality Assurance Testing", href: "/quality-assurance-testing" },
-            { name: "Devops Cloud Services", href: "/devops-cloud-services" },
-            { name: "Maintenance Support", href: "/maintenance-support" },
-            { name: "Consulting Services", href: "/consulting-services" },
-          ].map((service) => (
-            <li key={service.href}>
-              <Link
-                href={service.href}
-                className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
-              >
-                {service.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Quick Links */}
-      <div>
-        <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-        <ul className="space-y-2 text-sm">
-          <li>
-            <Link
-              href="#"
-              className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
-            >
-              Our Apps
-            </Link>
-          </li>
-
-          <li>
-            <a
-              href="https://clutch.co/profile/2digit-innovations#highlights"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
-            >
-              Find us on Clutch
-            </a>
-          </li>
-
-          {[
-            { name: "Privacy & Policy", href: "/privacy" },
-            { name: "Shipping & Delivery Policy", href: "/shipping" },
-            { name: "Return & Refund Policy", href: "/refund" },
-            { name: "Terms & Condition", href: "/term" },
-            { name: "FAQs", href: "/faq" },
-            { name: "Legal", href: "/legal" },
-          ].map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
 
           {/* Contact */}
           <div>
