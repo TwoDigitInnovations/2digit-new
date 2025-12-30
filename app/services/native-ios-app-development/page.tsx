@@ -1,15 +1,21 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import React, { ReactNode } from "react";
+
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 import { ChevronDown, Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link"; // Add this import
-// import styles from "./features.module.css";
-import { ReactNode  } from "react";
-
 import {
   Pizza,
+  HandCoins,
+  MonitorCog,
   ShoppingCart,
   Milk,
   Beef,
@@ -24,10 +30,10 @@ import {
   Shirt,
   Cpu,
   Sofa,
-Wrench,
+  Wrench,
   Boxes,
   Code,
-    PillBottle,
+  PillBottle,
   Flower,
   Utensils,
   Building2,
@@ -35,7 +41,7 @@ Wrench,
   Cloud,
   Coffee,
   ShoppingBag,
-    Store,
+  Store,
   Smartphone,
   Palette,
   PenTool,
@@ -65,11 +71,11 @@ Wrench,
   MessageCircle,
   Globe,
   Send,
-Layout,
-Server,
-Edit,
-MousePointer,
-Grid,
+  Layout,
+  Server,
+  Edit,
+  MousePointer,
+  Grid,
   Map,
   Users,
   LocateFixed,
@@ -79,7 +85,7 @@ Grid,
   Link2,
   MapPin,
   PackageCheck,
-    Tag,
+  Tag,
   Gift,
   Megaphone,
   // CreditCard,
@@ -95,7 +101,7 @@ Grid,
   LayoutDashboard,
   // Layers,
   MapPinned,
-    // Users,
+  // Users,
   Plug,
   Handshake,
   // FileText,
@@ -109,11 +115,15 @@ Grid,
   Factory,
   Dumbbell,
   Film,
-  HandCoins,
-  MonitorCog,
-  
 } from "lucide-react";
-
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaDribbble,
+  FaBehance,
+  FaPinterestP,
+} from "react-icons/fa";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -198,9 +208,9 @@ export default function Home() {
 const [active, setActive] = useState<string | null>(null);
 
   const closeMobileMenu = () => {
-  setIsMobileMenuOpen(false);
-};
-  const [activeFeatureTab, setActiveFeatureTab] = useState("Ordering Software");
+    setIsMobileMenuOpen(false);
+  };
+  const [activeFeatureTab, setActiveFeatureTab] = useState("features");
   const [activeSolutionsTab, setActiveSolutionsTab] = useState("industry");
 
   const features = [
@@ -255,6 +265,7 @@ const [active, setActive] = useState<string | null>(null);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("industry");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
 
   // const pricingMenu = ["Plans", "Compare Plans", "Enterprise"];
 
@@ -273,7 +284,7 @@ const [active, setActive] = useState<string | null>(null);
 
         <AnimatePresence>
           {activeMenu === label && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 12 }}
@@ -316,224 +327,258 @@ const [active, setActive] = useState<string | null>(null);
     );
   }
 
-  function Tab({ label, active, onHover }: any) {
+  // Tab component ko update karein (clickable + link)
+  // Tab component ko update karein (clickable + link)
+  function Tab({
+    label,
+    active,
+    onHover,
+    href,
+  }: {
+    label: string;
+    active: boolean;
+    onHover: () => void;
+    href?: string; // optional href
+  }) {
     return (
-      <div
-        onMouseEnter={onHover}
-        className={`flex justify-between items-center px-5 py-4 rounded-xl border cursor-pointer transition
+      <Link href={href || "#"} className="block">
+        {" "}
+        {/* Link wrap kiya */}
+        <div
+          onMouseEnter={onHover}
+          onClick={onHover} // Click par bhi tab change ho
+          className={`flex justify-between items-center px-5 py-4 rounded-xl border cursor-pointer transition
           ${
             active
               ? "border-[#6B5AFF] bg-purple-50 text-[#6B5AFF]"
               : "border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50"
           }`}
-      >
-        {label}
-        <span>›</span>
-      </div>
+        >
+          {label}
+          <span>›</span>
+        </div>
+      </Link>
     );
   }
-
   /* ---------------- DATA ---------------- */
 
   const pricingMenu = ["Plans", "Compare Plans", "Enterprise"];
 
-const industryOptions = [
-  { title: "Healthcare", icon: <HeartPulse size={22} /> },
-  { title: "Education & E-Learning", icon: <GraduationCap size={22} /> },
-  { title: "Retail & E-commerce", icon: <ShoppingCart size={22} /> },
-  { title: "Food & Beverage", icon: <Utensils size={22} /> },
-  { title: "Transportation & Logistics", icon: <Truck size={22} /> },
-  { title: "Real Estate", icon: <Building2 size={22} /> },
-  { title: "Finance & Banking", icon: <Landmark size={22} /> },
-  { title: "Travel & Hospitality", icon: <Plane size={22} /> },
-  { title: "Automotive", icon: <Car size={22} /> },
-  { title: "Manufacturing", icon: <Factory size={22} /> },
-  { title: "Sports & Fitness", icon: <Dumbbell size={22} /> },
-  { title: "Entertainment & Media", icon: <Film size={22} /> },
-];
-
-
+  const industryOptions = [
+    { title: "Healthcare", icon: <HeartPulse size={22} /> },
+    { title: "Education & E-Learning", icon: <GraduationCap size={22} /> },
+    { title: "Retail & E-commerce", icon: <ShoppingCart size={22} /> },
+    { title: "Food & Beverage", icon: <Utensils size={22} /> },
+    { title: "Transportation & Logistics", icon: <Truck size={22} /> },
+    { title: "Real Estate", icon: <Building2 size={22} /> },
+    { title: "Finance & Banking", icon: <Landmark size={22} /> },
+    { title: "Travel & Hospitality", icon: <Plane size={22} /> },
+    { title: "Automotive", icon: <Car size={22} /> },
+    { title: "Manufacturing", icon: <Factory size={22} /> },
+    { title: "Sports & Fitness", icon: <Dumbbell size={22} /> },
+    { title: "Entertainment & Media", icon: <Film size={22} /> },
+  ];
 
   const businessOptions = [
-  { title: "Restaurants", icon: <Utensils size={22} /> },
-  { title: "Dairy Business", icon: <Milk size={22} /> },
-  { title: "Super Market", icon: <Store size={22} /> },
-  { title: "Quick Commerce", icon: <ShoppingCart size={22} /> },
-  { title: "Hyperlocal Delivery", icon: <Truck size={22} /> },
-  { title: "Cloud Kitchen", icon: <Cloud size={22} /> },
-  { title: "Startups", icon: <Rocket size={22} /> },
-  { title: "Enterprise", icon: <Building2 size={22} /> },
-  { title: "Delivery Business", icon: <Package size={22} /> },
-  { title: "Cafe", icon: <Coffee size={22} /> },
-  { title: "Bakery", icon: <ShoppingBag size={22} /> },
-];
+    { title: "Restaurants", icon: <Utensils size={22} /> },
+    { title: "Dairy Business", icon: <Milk size={22} /> },
+    { title: "Super Market", icon: <Store size={22} /> },
+    { title: "Quick Commerce", icon: <ShoppingCart size={22} /> },
+    { title: "Hyperlocal Delivery", icon: <Truck size={22} /> },
+    { title: "Cloud Kitchen", icon: <Cloud size={22} /> },
+    { title: "Startups", icon: <Rocket size={22} /> },
+    { title: "Enterprise", icon: <Building2 size={22} /> },
+    { title: "Delivery Business", icon: <Package size={22} /> },
+    { title: "Cafe", icon: <Coffee size={22} /> },
+    { title: "Bakery", icon: <ShoppingBag size={22} /> },
+  ];
 
+  const featureTabs: Record<string, { title: string; icon: ReactNode }[]> = {
+    "Mobile App Development": [
+      { title: "Native iOS App Development", icon: <Apple size={22} /> },
+      {
+        title: "Native Android App Development",
+        icon: <Smartphone size={22} />,
+      },
+      { title: "Cross-Platform App Development", icon: <Layers size={22} /> },
+      { title: "Progressive Web Apps (PWA)", icon: <Globe size={22} /> },
+      { title: "Ride-Sharing & Transportation Apps", icon: <Car size={22} /> },
+      { title: "E-commerce & Shopping Apps", icon: <ShoppingCart size={22} /> },
+      { title: "Food & Meal Planning Apps", icon: <Utensils size={22} /> },
+      { title: "Healthcare & Wellness Apps", icon: <HeartPulse size={22} /> },
+      { title: "Education & Learning Apps", icon: <BookOpen size={22} /> },
+      { title: "Travel & Tourism Apps", icon: <Plane size={22} /> },
+      { title: "Logistics & Fleet Management Apps", icon: <Truck size={22} /> },
+      { title: "On-Demand Service Apps", icon: <Zap size={22} /> },
+      { title: "Survey & Rewards Apps", icon: <Gift size={22} /> },
+      { title: "Event & Ticketing Apps", icon: <Ticket size={22} /> },
+    ],
 
-const featureTabs: Record<string, { title: string; icon: ReactNode }[]> = {
-"Mobile App Development": [
-  { title: "Native iOS App Development", icon: <Apple size={22} /> },
-  { title: "Native Android App Development", icon: <Smartphone size={22} /> },
-  { title: "Cross-Platform App Development", icon: <Layers size={22} /> },
-  { title: "Progressive Web Apps (PWA)", icon: <Globe size={22} /> },
-  { title: "Ride-Sharing & Transportation Apps", icon: <Car size={22} /> },
-  { title: "E-commerce & Shopping Apps", icon: <ShoppingCart size={22} /> },
-  { title: "Food & Meal Planning Apps", icon: <Utensils size={22} /> },
-  { title: "Healthcare & Wellness Apps", icon: <HeartPulse size={22} /> },
-  { title: "Education & Learning Apps", icon: <BookOpen size={22} /> },
-  { title: "Travel & Tourism Apps", icon: <Plane size={22} /> },
-  { title: "Logistics & Fleet Management Apps", icon: <Truck size={22} /> },
-  { title: "On-Demand Service Apps", icon: <Zap size={22} /> },
-  { title: "Survey & Rewards Apps", icon: <Gift size={22} /> },
-  { title: "Event & Ticketing Apps", icon: <Ticket size={22} /> },
-],
+    "WEB DEVELOPMENT": [
+      { title: "Frontend Development", icon: <Layout size={22} /> },
+      { title: "Backend Development", icon: <Server size={22} /> },
+      { title: "Full-Stack Development", icon: <Layers size={22} /> },
+      { title: "CMS Development", icon: <Edit size={22} /> },
+      { title: "Corporate Websites", icon: <Building2 size={22} /> },
+      { title: "Landing Page Development", icon: <MousePointer size={22} /> },
+      { title: "Business Websites", icon: <Briefcase size={22} /> },
+      { title: "Portal Development", icon: <Grid size={22} /> },
+      { title: "Web Applications", icon: <Monitor size={22} /> },
+      { title: "API Development & Integration", icon: <Plug size={22} /> },
+    ],
 
+    "E-COMMERCE DEVELOPMENT": [
+      {
+        title: "E-commerce Website Development",
+        icon: <ShoppingBag size={22} />,
+      },
+      { title: "E-commerce App Development", icon: <Smartphone size={22} /> },
+      { title: "Multi-Vendor Marketplace", icon: <Store size={22} /> },
+      { title: "Custom E-commerce Solutions", icon: <Settings size={22} /> },
+      { title: "Shopify Development", icon: <ShoppingCart size={22} /> },
+      { title: "WooCommerce Development", icon: <Package size={22} /> },
+      { title: "Magento Development", icon: <Boxes size={22} /> },
+      { title: "Custom E-commerce Platform", icon: <Code size={22} /> },
+      { title: "Fashion & Apparel E-commerce", icon: <Shirt size={22} /> },
+      { title: "Electronics & Gadgets Store", icon: <Cpu size={22} /> },
+      { title: "Home & Furniture E-commerce", icon: <Sofa size={22} /> },
+      { title: "Food & Beverage E-commerce", icon: <Coffee size={22} /> },
+      { title: "Health & Wellness Store", icon: <HeartPulse size={22} /> },
+    ],
 
+    "READY-MADE APP SOLUTIONS": [
+      { title: "Food Delivery App Solution", icon: <Utensils size={22} /> },
+      {
+        title: "Grocery Delivery App Solution",
+        icon: <ShoppingCart size={22} />,
+      },
+      { title: "Taxi Booking App Solution", icon: <Car size={22} /> },
+      { title: "E-commerce App Solution", icon: <Store size={22} /> },
+      { title: "Clothing Store App Solution", icon: <Shirt size={22} /> },
+      { title: "Car Repair Service App", icon: <Wrench size={22} /> },
+      { title: "Truck Booking App - WheelsEyes", icon: <Truck size={22} /> },
+      { title: "Lottery Ticket App Solution", icon: <Ticket size={22} /> },
+    ],
 
-"WEB DEVELOPMENT": [
-  { title: "Frontend Development", icon: <Layout size={22} /> },
-  { title: "Backend Development", icon: <Server size={22} /> },
-  { title: "Full-Stack Development", icon: <Layers size={22} /> },
-  { title: "CMS Development", icon: <Edit size={22} /> },
-  { title: "Corporate Websites", icon: <Building2 size={22} /> },
-  { title: "Landing Page Development", icon: <MousePointer size={22} /> },
-  { title: "Business Websites", icon: <Briefcase size={22} /> },
-  { title: "Portal Development", icon: <Grid size={22} /> },
-  { title: "Web Applications", icon: <Monitor size={22} /> },
-  { title: "API Development & Integration", icon: <Plug size={22} /> },
-],
+    "CUSTOM SOFTWARE DEVELOPMENT": [
+      { title: "Enterprise Software Development", icon: <Map size={22} /> },
+      { title: "SaaS Application Development", icon: <Users size={22} /> },
+      { title: "Cloud-Based Solutions", icon: <LocateFixed size={22} /> },
+      { title: "Legacy System Modernization", icon: <Route size={22} /> },
+      { title: "System Integration", icon: <Wallet size={22} /> },
+      { title: "Workflow Automation", icon: <Truck size={22} /> },
+      {
+        title: "Workforce Management Software",
+        icon: <PackageCheck size={22} />,
+      },
+      { title: "Visitor Management Systems", icon: <Link2 size={22} /> },
+      { title: "Property Management Software", icon: <MapPin size={22} /> },
+    ],
 
+    "UI/UX DESIGN": [
+      { title: "User Interface (UI) Design", icon: <Palette size={22} /> },
+      { title: "User Experience (UX) Design", icon: <Smile size={22} /> },
+      { title: "Mobile App Design", icon: <Smartphone size={22} /> },
+      { title: "Web Design", icon: <Layout size={22} /> },
+      { title: "Prototyping & Testing", icon: <TestTube size={22} /> },
+      { title: "Design Systems", icon: <Layers size={22} /> },
+      { title: "Graphic Design", icon: <PenTool size={22} /> },
+    ],
 
-"E-COMMERCE DEVELOPMENT": [
-  { title: "E-commerce Website Development", icon: <ShoppingBag size={22} /> },
-  { title: "E-commerce App Development", icon: <Smartphone size={22} /> },
-  { title: "Multi-Vendor Marketplace", icon: <Store size={22} /> },
-  { title: "Custom E-commerce Solutions", icon: <Settings size={22} /> },
-  { title: "Shopify Development", icon: <ShoppingCart size={22} /> },
-  { title: "WooCommerce Development", icon: <Package size={22} /> },
-  { title: "Magento Development", icon: <Boxes size={22} /> },
-  { title: "Custom E-commerce Platform", icon: <Code size={22} /> },
-  { title: "Fashion & Apparel E-commerce", icon: <Shirt size={22} /> },
-  { title: "Electronics & Gadgets Store", icon: <Cpu size={22} /> },
-  { title: "Home & Furniture E-commerce", icon: <Sofa size={22} /> },
-  { title: "Food & Beverage E-commerce", icon: <Coffee size={22} /> },
-  { title: "Health & Wellness Store", icon: <HeartPulse size={22} /> },
-],
+    "EMERGING TECHNOLOGIES": [
+      {
+        title: "Artificial Intelligence (AI) & Machine Learning",
+        icon: <Palette size={22} />,
+      },
+      { title: "Internet of Things (IoT)", icon: <Smile size={22} /> },
+      { title: "Blockchain Development", icon: <Smartphone size={22} /> },
+      {
+        title: "Augmented Reality (AR) & Virtual Reality (VR)",
+        icon: <Layout size={22} />,
+      },
+      { title: "Chatbots & Conversational AI", icon: <TestTube size={22} /> },
+      { title: "Cloud Computing", icon: <Layers size={22} /> },
+    ],
 
-"READY-MADE APP SOLUTIONS": [
-  { title: "Food Delivery App Solution", icon: <Utensils size={22} /> },
-  { title: "Grocery Delivery App Solution", icon: <ShoppingCart size={22} /> },
-  { title: "Taxi Booking App Solution", icon: <Car size={22} /> },
-  { title: "E-commerce App Solution", icon: <Store size={22} /> },
-  { title: "Clothing Store App Solution", icon: <Shirt size={22} /> },
-  { title: "Car Repair Service App", icon: <Wrench size={22} /> },
-  { title: "Truck Booking App - WheelsEyes", icon: <Truck size={22} /> },
-  { title: "Lottery Ticket App Solution", icon: <Ticket size={22} /> },
-],
+    "DIGITAL MARKETING": [
+      { title: "Search Engine Optimization (SEO)", icon: <Search size={22} /> },
+      { title: "Social Media Marketing (SMM/SMO)", icon: <Share2 size={22} /> },
+      {
+        title: "Pay-Per-Click (PPC) Advertising",
+        icon: <MousePointerClick size={22} />,
+      },
+      { title: "Content Marketing", icon: <PenTool size={22} /> },
+      { title: "Email Marketing", icon: <Mail size={22} /> },
+      {
+        title: "Conversion Rate Optimization (CRO)",
+        icon: <TrendingUp size={22} />,
+      },
+      { title: "Analytics & Reporting", icon: <BarChart3 size={22} /> },
+      { title: "Influencer Marketing", icon: <Users size={22} /> },
+    ],
+    "QUALITY ASSURANCE & TESTING": [
+      { title: "Manual Testing", icon: <CheckCircle size={22} /> },
+      { title: "Automated Testing", icon: <Settings size={22} /> },
+      { title: "Mobile App Testing", icon: <Smartphone size={22} /> },
+      { title: "Web Application Testing", icon: <Monitor size={22} /> },
+      { title: "Performance Testing", icon: <Gauge size={22} /> },
+      { title: "API Testing", icon: <Plug size={22} /> },
+    ],
 
-  "CUSTOM SOFTWARE DEVELOPMENT": [
-    { title: "Enterprise Software Development", icon: <Map size={22} /> },
-    { title: "SaaS Application Development", icon: <Users size={22} /> },
-    { title: "Cloud-Based Solutions", icon: <LocateFixed size={22} /> },
-    { title: "Legacy System Modernization", icon: <Route size={22} /> },
-    { title: "System Integration", icon: <Wallet size={22} /> },
-    { title: "Workflow Automation", icon: <Truck size={22} /> },
-    { title: "Workforce Management Software", icon: <PackageCheck size={22} /> },
-    { title: "Visitor Management Systems", icon: <Link2 size={22} /> },
-    { title: "Property Management Software", icon: <MapPin size={22} /> },
-  ],
+    "DEVOPS & CLOUD SERVICES": [
+      { title: "DevOps Consulting", icon: <Infinity size={22} /> },
+      { title: "CI/CD Implementation", icon: <GitBranch size={22} /> },
+      { title: "Payment Settlement", icon: <CreditCard size={22} /> },
+      { title: "Cloud Migration", icon: <CloudUpload size={22} /> },
+      { title: "Infrastructure as Code (IaC)", icon: <Code size={22} /> },
+      { title: "Container Orchestration", icon: <Boxes size={22} /> },
+      { title: "Monitoring & Logging", icon: <Activity size={22} /> },
+    ],
 
-"UI/UX DESIGN": [
-  { title: "User Interface (UI) Design", icon: <Palette size={22} /> },
-  { title: "User Experience (UX) Design", icon: <Smile size={22} /> },
-  { title: "Mobile App Design", icon: <Smartphone size={22} /> },
-  { title: "Web Design", icon: <Layout size={22} /> },
-  { title: "Prototyping & Testing", icon: <TestTube size={22} /> },
-  { title: "Design Systems", icon: <Layers size={22} /> },
-  { title: "Graphic Design", icon: <PenTool size={22} /> },
+    "MAINTENANCE & SUPPORT": [
+      { title: "Application Maintenance", icon: <Wrench size={22} /> },
+      { title: "Dedicated Development Team", icon: <Users size={22} /> },
+      { title: "Technical Support", icon: <Headphones size={22} /> },
+      { title: "Performance Optimization", icon: <Zap size={22} /> },
+      { title: "Security Updates", icon: <ShieldCheck size={22} /> },
+    ],
 
-],
-
-"EMERGING TECHNOLOGIES": [
-  { title: "Artificial Intelligence (AI) & Machine Learning", icon: <Palette size={22} /> },
-  { title: "Internet of Things (IoT)", icon: <Smile size={22} /> },
-  { title: "Blockchain Development", icon: <Smartphone size={22} /> },
-  { title: "Augmented Reality (AR) & Virtual Reality (VR)", icon: <Layout size={22} /> },
-  { title: "Chatbots & Conversational AI", icon: <TestTube size={22} /> },
-  { title: "Cloud Computing", icon: <Layers size={22} /> },
-
-],
-
-
-"DIGITAL MARKETING": [
-  { title: "Search Engine Optimization (SEO)", icon: <Search size={22} /> },
-  { title: "Social Media Marketing (SMM/SMO)", icon: <Share2 size={22} /> },
-  { title: "Pay-Per-Click (PPC) Advertising", icon: <MousePointerClick size={22} /> },
-  { title: "Content Marketing", icon: <PenTool size={22} /> },
-  { title: "Email Marketing", icon: <Mail size={22} /> },
-  { title: "Conversion Rate Optimization (CRO)", icon: <TrendingUp size={22} /> },
-  { title: "Analytics & Reporting", icon: <BarChart3 size={22} /> },
-  { title: "Influencer Marketing", icon: <Users size={22} /> },
-],
-"QUALITY ASSURANCE & TESTING": [
-  { title: "Manual Testing", icon: <CheckCircle size={22} /> },
-  { title: "Automated Testing", icon: <Settings size={22} /> },
-  { title: "Mobile App Testing", icon: <Smartphone size={22} /> },
-  { title: "Web Application Testing", icon: <Monitor size={22} /> },
-  { title: "Performance Testing", icon: <Gauge size={22} /> },
-  { title: "API Testing", icon: <Plug size={22} /> },
-],
-
-"DEVOPS & CLOUD SERVICES": [
-  { title: "DevOps Consulting", icon: <Infinity size={22} /> },
-  { title: "CI/CD Implementation", icon: <GitBranch size={22} /> },
-  { title: "Payment Settlement", icon: <CreditCard size={22} /> },
-  { title: "Cloud Migration", icon: <CloudUpload size={22} /> },
-  { title: "Infrastructure as Code (IaC)", icon: <Code size={22} /> },
-  { title: "Container Orchestration", icon: <Boxes size={22} /> },
-  { title: "Monitoring & Logging", icon: <Activity size={22} /> },
-],
-
-"MAINTENANCE & SUPPORT": [
-  { title: "Application Maintenance", icon: <Wrench size={22} /> },
-  { title: "Dedicated Development Team", icon: <Users size={22} /> },
-  { title: "Technical Support", icon: <Headphones size={22} /> },
-  { title: "Performance Optimization", icon: <Zap size={22} /> },
-  { title: "Security Updates", icon: <ShieldCheck size={22} /> },
-],
-
-
-"CONSULTING SERVICES": [
-  { title: "IT Strategy Consulting", icon: <Compass size={22} /> },
-  { title: "Software Architecture Consulting", icon: <Layers size={22} /> },
-  { title: "Technology Selection", icon: <Cpu size={22} /> },
-  { title: "Project Management", icon: <ClipboardCheck size={22} /> },
-  { title: "Business Analysis", icon: <PieChart size={22} /> },
-],
-
+    "CONSULTING SERVICES": [
+      { title: "IT Strategy Consulting", icon: <Compass size={22} /> },
+      { title: "Software Architecture Consulting", icon: <Layers size={22} /> },
+      { title: "Technology Selection", icon: <Cpu size={22} /> },
+      { title: "Project Management", icon: <ClipboardCheck size={22} /> },
+      { title: "Business Analysis", icon: <PieChart size={22} /> },
+    ],
   };
-const resourceTabs: Record<string, { title: string; icon: ReactNode }[]> = {
-  "About Us": [
-    { title: "Who We Are", icon: <Users size={22} /> },
-    { title: "Integrations", icon: <Plug size={22} /> },
-    { title: "Become A Partner", icon: <Handshake size={22} /> },
-  ],
+  const resourceTabs: Record<string, { title: string; icon: ReactNode }[]> = {
+    "About Us": [
+      { title: "Who We Are", icon: <Users size={22} /> },
+      { title: "Integrations", icon: <Plug size={22} /> },
+      { title: "Become A Partner", icon: <Handshake size={22} /> },
+    ],
 
-  "Learn & Grow": [
-    { title: "Blog", icon: <FileText size={22} /> },
-    { title: "FAQ", icon: <HelpCircle size={22} /> },
-    { title: "Templates", icon: <LayoutTemplate size={22} /> },
-    { title: "Glossary", icon: <BookOpen size={22} /> },
-    { title: "Knowledge Base", icon: <Library size={22} /> },
-    { title: "Deonde Vs Others", icon: <Zap size={22} /> },
-  ],
-};
+    "Learn & Grow": [
+      { title: "Blog", icon: <FileText size={22} /> },
+      { title: "FAQ", icon: <HelpCircle size={22} /> },
+      { title: "Templates", icon: <LayoutTemplate size={22} /> },
+      { title: "Glossary", icon: <BookOpen size={22} /> },
+      { title: "Knowledge Base", icon: <Library size={22} /> },
+      { title: "Deonde Vs Others", icon: <Zap size={22} /> },
+    ],
+  };
+
+  
 
   // Mobile Accordion Component
-  function MobileAccordion({ title, children, href }: 
-    { title: string; 
-    children: React.ReactNode
-    href?: string; // optional
+  function MobileAccordion({
+    title,
+    children,
+  }: {
+    title: string;
+      href?: string;          // ✅ Add this
 
+    children: React.ReactNode;
   }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -543,7 +588,11 @@ const resourceTabs: Record<string, { title: string; icon: ReactNode }[]> = {
           className="w-full flex justify-between items-center py-4 text-lg font-medium text-left"
         >
           {title}
-          <ChevronDown className={`w-6 h-6 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+          <ChevronDown
+            className={`w-6 h-6 transition-transform ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
         </button>
         <AnimatePresence>
           {isOpen && (
@@ -561,7 +610,6 @@ const resourceTabs: Record<string, { title: string; icon: ReactNode }[]> = {
       </div>
     );
   }
-
   const items = [
   {
     title: "Cafés",
@@ -658,36 +706,37 @@ const toggleFAQ = (index: number) => {
 
       {/* NAVBAR WITH MOBILE MENU */}
 {/* NAVBAR WITH MOBILE MENU */}
-<nav className="relative z-50 py-4 px-6 md:px-12 lg:px-16">
-  <div className="max-w-7xl mx-auto flex items-center justify-between">
-    {/* LOGO */}
-    <div className="flex-shrink-0">
-      <Link href="/">
-      <Image
-        src="/assests/2digit.png"
-        alt="Logo"
-        width={150}
-        height={60}
-        className="w-28 md:w-36"
-        priority
-      />
-      </Link>
-    </div>
+ <nav className="relative z-50 py-4 px-6 md:px-12 lg:px-16">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* LOGO */}
+          <div className="flex-shrink-0">
+            <Link href="/">
+              <Image
+                src="/assests/2digit.png"
+                alt="Logo"
+                width={150}
+                height={60}
+                className="w-28 md:w-36"
+                priority
+              />
+            </Link>
+          </div>
 
-    {/* DESKTOP MENU - Centered */}
-    <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                    bg-white/95 backdrop-blur-md shadow-md rounded-full px-8 py-3 gap-8">
-      
-      {/* Services */}
-      <div
-        className="relative"
-        onMouseEnter={() => setActiveMenu("Services")}
-        onMouseLeave={() => setActiveMenu(null)}
-      >
-        <button className="flex items-center gap-1 font-medium hover:text-[#6B5AFF] transition-colors">
-          Services <ChevronDown size={16} />
-        </button>
-<AnimatePresence>
+          {/* DESKTOP MENU - Centered */}
+          <div
+            className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                    bg-white/95 backdrop-blur-md shadow-md rounded-full px-8 py-3 gap-8"
+          >
+            {/* Services */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveMenu("Services")}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <button className="flex items-center gap-1 font-medium hover:text-[#6B5AFF] transition-colors">
+                Services <ChevronDown size={16} />
+              </button>
+              <AnimatePresence>
                 {activeMenu === "Services" && (
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
@@ -701,7 +750,10 @@ const toggleFAQ = (index: number) => {
                     {/* Left Tabs */}
                     <div className="w-80 space-y-3">
                       {Object.keys(featureTabs).map((tab) => {
-                        const slug = tab.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+                        const slug = tab
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")
+                          .replace(/&/g, "and");
                         return (
                           <Tab
                             key={tab}
@@ -715,294 +767,323 @@ const toggleFAQ = (index: number) => {
                     </div>
 
                     {/* Right Grid - Perfect Line-wise Alignment */}
-                <div className="flex-1 grid grid-cols-3 gap-6 grid-rows-5 auto-rows-fr">
-  {featureTabs[activeFeatureTab]?.map((item) => (
-    <Link
-      key={item.title}
-      href={`/services/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-      className="group flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50 transition-all duration-300 text-center bg-white shadow-sm hover:shadow-md"
-      onClick={() => setActiveMenu(null)}
-    >
-      <div className="mb-5 text-[#000] group-hover:scale-110 transition-transform duration-300">
-        {item.icon}
-      </div>
-      <div className="text-sm font-medium text-gray-800 group-hover:text-[#6B5AFF] line-clamp-3 leading-relaxed">
-        {item.title}
-      </div>
-    </Link>
-  ))}
+                    <div className="flex-1 grid grid-cols-3 gap-6 grid-rows-5 auto-rows-fr">
+                      {featureTabs[activeFeatureTab]?.map((item) => (
+                        <Link
+                          key={item.title}
+                          href={`/services/${item.title
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="group flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50 transition-all duration-300 text-center bg-white shadow-sm hover:shadow-md"
+                          onClick={() => setActiveMenu(null)}
+                        >
+                          <div className="mb-5 text-[#000] group-hover:scale-110 transition-transform duration-300">
+                            {item.icon}
+                          </div>
+                          <div className="text-sm font-medium text-gray-800 group-hover:text-[#6B5AFF] line-clamp-3 leading-relaxed">
+                            {item.title}
+                          </div>
+                        </Link>
+                      ))}
 
-  {/* Empty fillers to maintain grid structure if needed (optional) */}
-  {/* You can remove this if you don't want empty cards */}
-  {featureTabs[activeFeatureTab] && featureTabs[activeFeatureTab].length < 15 && (
-    Array.from({ length: 15 - featureTabs[activeFeatureTab].length }).map((_, i) => (
-      <div key={`filler-${i}`} className="invisible" />
-    ))
-  )}
-</div>
+                      {/* Empty fillers to maintain grid structure if needed (optional) */}
+                      {/* You can remove this if you don't want empty cards */}
+                      {featureTabs[activeFeatureTab] &&
+                        featureTabs[activeFeatureTab].length < 15 &&
+                        Array.from({
+                          length: 15 - featureTabs[activeFeatureTab].length,
+                        }).map((_, i) => (
+                          <div key={`filler-${i}`} className="invisible" />
+                        ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-      </div>
+            </div>
 
-      {/* Solutions */}
-      <div
-        className="relative"
-        onMouseEnter={() => setActiveMenu("Solutions")}
-        onMouseLeave={() => setActiveMenu(null)}
-      >
-        <button className="flex items-center gap-1 font-medium hover:text-[#6B5AFF] transition">
-          Solutions <ChevronDown size={16} />
-        </button>
-
-        <AnimatePresence>
-          {activeMenu === "Solutions" && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ duration: 0.25 }}
-              className="absolute top-14 left-1/2 -translate-x-1/2 w-[1100px] bg-white rounded-3xl shadow-2xl p-8 flex gap-8"
+            {/* Solutions */}
+            <div
+              className="relative"
               onMouseEnter={() => setActiveMenu("Solutions")}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="w-1/4 space-y-4">
-                <Tab
-                  label="By Industry"
-                  active={activeSolutionsTab === "industry"}
-                  onHover={() => setActiveSolutionsTab("industry")}
-                  href="/solutions/by-industry"
-                />
-                <Tab
-                  label="By Business"
-                  active={activeSolutionsTab === "business"}
-                  onHover={() => setActiveSolutionsTab("business")}
-                  href="/solutions/by-business"
-                />
-              </div>
+              <button className="flex items-center gap-1 font-medium hover:text-[#6B5AFF] transition">
+                Solutions <ChevronDown size={16} />
+              </button>
 
-              <div className="w-3/4 grid grid-cols-3 gap-5">
-                {(activeSolutionsTab === "industry" ? industryOptions : businessOptions).map((item) => (
-                  <Link
-                    key={item.title}
-                    href={`/solutions/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="group p-5 rounded-2xl border border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50 transition-all duration-300"
-                    onClick={() => setActiveMenu(null)}
+              <AnimatePresence>
+                {activeMenu === "Solutions" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute top-14 left-1/2 -translate-x-1/2 w-[1100px] bg-white rounded-3xl shadow-2xl p-8 flex gap-8"
+                    onMouseEnter={() => setActiveMenu("Solutions")}
+                    onMouseLeave={() => setActiveMenu(null)}
                   >
-                    <span className="text-3xl block mb-3 group-hover:scale-110 transition-transform">
-                      {item.icon}
-                    </span>
-                    <div className="font-medium text-gray-800 group-hover:text-[#6B5AFF] transition">
-                      {item.title}
+                    <div className="w-1/4 space-y-4">
+                      <Tab
+                        label="By Industry"
+                        active={activeSolutionsTab === "industry"}
+                        onHover={() => setActiveSolutionsTab("industry")}
+                        href="/solutions/by-industry"
+                      />
+                      <Tab
+                        label="By Business"
+                        active={activeSolutionsTab === "business"}
+                        onHover={() => setActiveSolutionsTab("business")}
+                        href="/solutions/by-business"
+                      />
                     </div>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
 
-      {/* Resources */}
-      <div
-        className="relative"
-        onMouseEnter={() => setActiveMenu("Resources")}
-        onMouseLeave={() => setActiveMenu(null)}
-      >
-        <button className="flex items-center gap-1 font-medium hover:text-[#6B5AFF] transition">
-          Resources <ChevronDown size={16} />
-        </button>
+                    <div className="w-3/4 grid grid-cols-3 gap-5">
+                      {(activeSolutionsTab === "industry"
+                        ? industryOptions
+                        : businessOptions
+                      ).map((item) => (
+                        <Link
+                          key={item.title}
+                          href={`/solutions/${item.title
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="group p-5 rounded-2xl border border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50 transition-all duration-300"
+                          onClick={() => setActiveMenu(null)}
+                        >
+                          <span className="text-3xl block mb-3 group-hover:scale-110 transition-transform">
+                            {item.icon}
+                          </span>
+                          <div className="font-medium text-gray-800 group-hover:text-[#6B5AFF] transition">
+                            {item.title}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-        <AnimatePresence>
-          {activeMenu === "Resources" && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ duration: 0.25 }}
-              className="absolute top-14 left-1/2 -translate-x-1/2 w-[900px] bg-white rounded-3xl shadow-2xl p-8 flex gap-8"
+            {/* Resources */}
+            <div
+              className="relative"
               onMouseEnter={() => setActiveMenu("Resources")}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="w-1/4 space-y-4">
-                {Object.keys(resourceTabs).map((tab) => (
-                  <Tab
-                    key={tab}
-                    label={tab}
-                    active={activeTab === tab}
-                    onHover={() => setActiveTab(tab)}
-                    href={`/resources/${tab.toLowerCase().replace(/\s+/g, "-")}`}
-                  />
-                ))}
-              </div>
+              <button className="flex items-center gap-1 font-medium hover:text-[#6B5AFF] transition">
+                Resources <ChevronDown size={16} />
+              </button>
 
-              <div className="w-3/4 grid grid-cols-3 gap-5">
-                {resourceTabs[activeTab]?.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={`/resources/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="group p-5 rounded-2xl border border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50 transition-all duration-300 flex items-center gap-3"
-                    onClick={() => setActiveMenu(null)}
+              <AnimatePresence>
+                {activeMenu === "Resources" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute top-14 left-1/2 -translate-x-1/2 w-[900px] bg-white rounded-3xl shadow-2xl p-8 flex gap-8"
+                    onMouseEnter={() => setActiveMenu("Resources")}
+                    onMouseLeave={() => setActiveMenu(null)}
                   >
-                    <span className="text-2xl">{item.icon}</span>
-                    <span className="font-medium text-gray-800 group-hover:text-[#6B5AFF]">
-                      {item.title}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+                    <div className="w-1/4 space-y-4">
+                      {Object.keys(resourceTabs).map((tab) => (
+                        <Tab
+                          key={tab}
+                          label={tab}
+                          active={activeTab === tab}
+                          onHover={() => setActiveTab(tab)}
+                          href={`/resources/${tab
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                        />
+                      ))}
+                    </div>
 
-      {/* Pricing */}
-      <Link href="/pricing" className="font-medium hover:text-[#6B5AFF] transition">
-        Pricing
-      </Link>
-    </div>
-
-    {/* Desktop Contact Button */}
-    <div className="hidden md:block">
-      <Link href="/contact">
-        <button className="bg-[#6B5AFF] text-white px-6 py-3 rounded-full font-medium hover:bg-[#8B7AFF] transition shadow-md">
-          Contact Us
-        </button>
-      </Link>
-    </div>
-
-    {/* Mobile Hamburger */}
-    <button
-      onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-      className="md:hidden z-50"
-    >
-      {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-    </button>
-  </div>
-
-  {/* MOBILE FULL-SCREEN MENU (Accordion Style) */}
-  <AnimatePresence>
-    {isMobileMenuOpen && (
-      <motion.div
-        initial={{ x: "100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "100%" }}
-        transition={{ type: "tween", duration: 0.35 }}
-        className="fixed inset-0 bg-white z-40 pt-24 px-6 overflow-y-auto md:hidden"
-      >
-        <div className="max-w-3xl mx-auto pb-10">
-          {/* Services Accordion */}
-{/* Services */}
-<MobileAccordion title="Services">
-  <div className="space-y-4 pl-4">
-    {Object.keys(featureTabs).map((tab) => {
-      const slug = tab.toLowerCase().replace(/\s+/g, "-");
-      return (
-       <MobileAccordion
-      key={tab}
-      title={tab}
-      href={`/services/${slug}`}   // ← Yeh link banayega
-    >
-          {/* Children (sub-items) */}
-          <div className="grid gap-3 pl-4">
-            {featureTabs[tab].map((item) => (
-              <Link
-                key={item.title}
-                href={`/services/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="text-2xl">{item.icon}</span>
-                <span className="font-medium">{item.title}</span>
-              </Link>
-            ))}
-          </div>
-        </MobileAccordion>
-      );
-    })}
-  </div>
-</MobileAccordion>
-
-          {/* Solutions Accordion */}
-          <MobileAccordion title="Solutions">
-            <div className="space-y-4 pl-4">
-              <MobileAccordion title="By Industry">
-                <div className="space-y-2 pl-4">
-                  {industryOptions.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={`/solutions/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <span className="text-2xl">{item.icon}</span>
-                      <span className="font-medium">{item.title}</span>
-                    </Link>
-                  ))}
-                </div>
-              </MobileAccordion>
-
-              <MobileAccordion title="By Business">
-                <div className="space-y-2 pl-4">
-                  {businessOptions.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={`/solutions/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <span className="text-2xl">{item.icon}</span>
-                      <span className="font-medium">{item.title}</span>
-                    </Link>
-                  ))}
-                </div>
-              </MobileAccordion>
+                    <div className="w-3/4 grid grid-cols-3 gap-5">
+                      {resourceTabs[activeTab]?.map((item) => (
+                        <Link
+                          key={item.title}
+                          href={`/resources/${item.title
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="group p-5 rounded-2xl border border-gray-200 hover:border-[#6B5AFF] hover:bg-purple-50 transition-all duration-300 flex items-center gap-3"
+                          onClick={() => setActiveMenu(null)}
+                        >
+                          <span className="text-2xl">{item.icon}</span>
+                          <span className="font-medium text-gray-800 group-hover:text-[#6B5AFF]">
+                            {item.title}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </MobileAccordion>
 
-          {/* Resources Accordion */}
-          <MobileAccordion title="Resources">
-            <div className="space-y-4 pl-4">
-              {Object.keys(resourceTabs).map((tab) => (
-                <MobileAccordion key={tab} title={tab}>
-                  <div className="grid gap-3 pl-4">
-                    {resourceTabs[tab].map((item) => (
-                      <Link
-                        key={item.title}
-                        href={`/resources/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        <span className="text-2xl">{item.icon}</span>
-                        <span className="font-medium">{item.title}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </MobileAccordion>
-              ))}
-            </div>
-          </MobileAccordion>
-
-          {/* Pricing & Contact */}
-          <div className="mt-8 space-y-4 border-t pt-6">
+            {/* Pricing */}
             <Link
               href="/pricing"
-              className="block py-4 text-lg font-medium hover:text-[#6B5AFF] transition"
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-medium hover:text-[#6B5AFF] transition"
             >
               Pricing
             </Link>
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <button className="w-full bg-[#6B5AFF] text-white py-4 rounded-full font-medium hover:bg-[#8B7AFF] transition shadow-md">
+          </div>
+
+          {/* Desktop Contact Button */}
+          <div className="hidden md:block">
+            <Link href="/contact">
+              <button className="bg-[#6B5AFF] text-white px-6 py-3 rounded-full font-medium hover:bg-[#8B7AFF] transition shadow-md">
                 Contact Us
               </button>
             </Link>
           </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="md:hidden z-50"
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</nav>
+
+        {/* MOBILE FULL-SCREEN MENU (Accordion Style) */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.35 }}
+              className="fixed inset-0 bg-white z-40 pt-24 px-6 overflow-y-auto md:hidden"
+            >
+              <div className="max-w-3xl mx-auto pb-10">
+                {/* Services Accordion */}
+                {/* Services */}
+                <MobileAccordion title="Services">
+                  <div className="space-y-4 pl-4">
+                    {Object.keys(featureTabs).map((tab) => {
+                      const slug = tab.toLowerCase().replace(/\s+/g, "-");
+                      return (
+                        <MobileAccordion
+                          key={tab}
+                          title={tab}
+                          href={`/services/${slug}`} // ← Yeh link banayega
+                        >
+                          {/* Children (sub-items) */}
+                          <div className="grid gap-3 pl-4">
+                            {featureTabs[tab].map((item) => (
+                              <Link
+                                key={item.title}
+                                href={`/services/${item.title
+                                  .toLowerCase()
+                                  .replace(/\s+/g, "-")}`}
+                                className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <span className="text-2xl">{item.icon}</span>
+                                <span className="font-medium">
+                                  {item.title}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </MobileAccordion>
+                      );
+                    })}
+                  </div>
+                </MobileAccordion>
+
+                {/* Solutions Accordion */}
+                <MobileAccordion title="Solutions">
+                  <div className="space-y-4 pl-4">
+                    <MobileAccordion title="By Industry">
+                      <div className="space-y-2 pl-4">
+                        {industryOptions.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={`/solutions/${item.title
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
+                            className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <span className="text-2xl">{item.icon}</span>
+                            <span className="font-medium">{item.title}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </MobileAccordion>
+
+                    <MobileAccordion title="By Business">
+                      <div className="space-y-2 pl-4">
+                        {businessOptions.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={`/solutions/${item.title
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
+                            className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <span className="text-2xl">{item.icon}</span>
+                            <span className="font-medium">{item.title}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </MobileAccordion>
+                  </div>
+                </MobileAccordion>
+
+                {/* Resources Accordion */}
+                <MobileAccordion title="Resources">
+                  <div className="space-y-4 pl-4">
+                    {Object.keys(resourceTabs).map((tab) => (
+                      <MobileAccordion key={tab} title={tab}>
+                        <div className="grid gap-3 pl-4">
+                          {resourceTabs[tab].map((item) => (
+                            <Link
+                              key={item.title}
+                              href={`/resources/${item.title
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`}
+                              className="flex items-center gap-4 py-3 px-4 rounded-lg hover:bg-purple-50 transition"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              <span className="text-2xl">{item.icon}</span>
+                              <span className="font-medium">{item.title}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </MobileAccordion>
+                    ))}
+                  </div>
+                </MobileAccordion>
+
+                {/* Pricing & Contact */}
+                <div className="mt-8 space-y-4 border-t pt-6">
+                  <Link
+                    href="/pricing"
+                    className="block py-4 text-lg font-medium hover:text-[#6B5AFF] transition"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Pricing
+                  </Link>
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <button className="w-full bg-[#6B5AFF] text-white py-4 rounded-full font-medium hover:bg-[#8B7AFF] transition shadow-md">
+                      Contact Us
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
       {/* Glows behind navbar */}
 
@@ -1085,20 +1166,16 @@ const toggleFAQ = (index: number) => {
         </div>
 
         <h1 className="text-4xl md:text-5xl text-yellow-500 font-bold leading-tight relative z-20">
-          Custom {"  "}
+         Mobile App {"  "}
           <span className="text-black">
-            Software Development Company | Transform{" "}
+            Development Services | Build Apps That {" "}
           </span>
           <br className="hidden md:block" />
-          <span className="text-yellow-500">Your Digital Presence</span>
+          <span className="text-yellow-500">Drive Business Growth</span>
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-          We build powerful digital solutions for businesses across the UK, USA,
-          and India. From custom web development to mobile apps and digital
-          marketing, we turn your vision into reality with cutting-edge
-          technology. Whether you're a startup or an established enterprise, we
-          deliver results that drive your business forward.
+          Transform your business idea into a powerful mobile application that users love. At 2Digit Innovations, we specialize in creating high-performance mobile apps for iOS, Android, and cross-platform solutions. From startups launching their first app to enterprises scaling their digital presence, we deliver mobile experiences that engage users and drive real business results across the UK, USA, and India.
         </p>
 
         <div className="flex justify-center mt-8">
@@ -1250,22 +1327,19 @@ const toggleFAQ = (index: number) => {
               {/* Left Content */}
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  One Platform. Endless Possibilities.
+Native iOS App Development
                 </h2>
       
                 <p className="text-gray-600 mb-8 max-w-xl">
-                  Whether you run a single branded outlet or multiple store locations,
-                  our all-in-one ordering solution has you covered. Add and manage
-                  unlimited stores or restaurants — all under a single subscription.
-                  One Subscription. Unlimited Growth.
+                Swift-Powered Apps Built for Apple Excellence: Harness the full power of Apple's ecosystem with native iOS applications that deliver exceptional performance and seamless user experiences. Our expert Swift developers create stunning iPhone and iPad apps that stand out in the App Store.
                 </p>
       
                 <div className="space-y-4">
                   {[
-                    "Seamless Management for One or Many Locations",
-                    "Centralized Dashboard for Multiple Stores",
-                    "Cost-Effective & Scalable",
-                    "Reach More Customers, Effortlessly",
+                    "Custom Swift development",
+                    "Professional iPhone & iPad apps",
+                    "App Store optimization",
+                    "Apple Pay & Face ID integration",
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -1309,23 +1383,19 @@ const toggleFAQ = (index: number) => {
               {/* Content */}
               <div className="order-1 lg:order-2">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Website & Mobile Apps – Your Brand, Everywhere
+Native Android App Development
                 </h2>
       
                 <p className="text-gray-600 mb-8 max-w-xl">
-                  Deliver a seamless and personalized ordering experience through your
-                  white-label mobile app or branded website. Expand your reach by
-                  accepting orders directly from social platforms like Instagram,
-                  Facebook, Twitter, and more.
+                Reach Billions with Powerful Android Solutions: Dominate the world's largest mobile platform with robust Android applications built using Kotlin and Java. We develop high-performance apps that work flawlessly across thousands of Android devices, connecting your business with the massive Android user base.
                 </p>
       
                 <div className="space-y-4">
                   {[
-                    "Build a Strong Multi-Platform Presence",
-                    "Attract New Customers with Ease",
-                    "Keep Existing Customers Coming Back",
-                    "Expand Your Digital Reach",
-                    "Grow Your Brand Across Channels",
+                    "Modern Kotlin & Java development",
+                    "Google Play optimization",
+                    "Responsive Android tablet apps",
+                    "Material Design implementation",
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -1350,22 +1420,20 @@ const toggleFAQ = (index: number) => {
               {/* Left Content */}
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  One Platform. Endless Possibilities.
+Cross-Platform App Development
+
                 </h2>
       
                 <p className="text-gray-600 mb-8 max-w-xl">
-                  Whether you run a single branded outlet or multiple store locations,
-                  our all-in-one ordering solution has you covered. Add and manage
-                  unlimited stores or restaurants — all under a single subscription.
-                  One Subscription. Unlimited Growth.
+                 One Codebase. Multiple Platforms. Maximum Reach: Why choose between iOS and Android when you can dominate both? Our cross-platform development using React Native and Flutter lets you launch on multiple platforms simultaneously, cutting development time and costs in half without compromising quality.
                 </p>
       
                 <div className="space-y-4">
                   {[
-                    "Seamless Management for One or Many Locations",
-                    "Centralized Dashboard for Multiple Stores",
-                    "Cost-Effective & Scalable",
-                    "Reach More Customers, Effortlessly",
+                    "React Native & Flutter expertise",
+                    "Single codebase, dual deployment",
+                    "Near-native performance",
+                    "Faster time-to-market",
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -1409,23 +1477,19 @@ const toggleFAQ = (index: number) => {
               {/* Content */}
               <div className="order-1 lg:order-2">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Website & Mobile Apps – Your Brand, Everywhere
+Progressive Web Apps (PWA)
                 </h2>
       
                 <p className="text-gray-600 mb-8 max-w-xl">
-                  Deliver a seamless and personalized ordering experience through your
-                  white-label mobile app or branded website. Expand your reach by
-                  accepting orders directly from social platforms like Instagram,
-                  Facebook, Twitter, and more.
+                The Future of Mobile, No Download Required: Bridge the gap between web and mobile with Progressive Web Apps that deliver app-like experiences directly through browsers. No app store approvals, no download barriers—just instant access with powerful functionality.
                 </p>
       
                 <div className="space-y-4">
                   {[
-                    "Build a Strong Multi-Platform Presence",
-                    "Attract New Customers with Ease",
-                    "Keep Existing Customers Coming Back",
-                    "Expand Your Digital Reach",
-                    "Grow Your Brand Across Channels",
+                    "Modern PWA development",
+                    "Offline functionality",
+                    "Push notifications",
+                    "Home screen installation",
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -1448,7 +1512,7 @@ const toggleFAQ = (index: number) => {
 
         {/* HEADING */}
         <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-14">
-          Features Built to Grow Your Business
+Our Mobile App Development Process
         </h2>
 
         {/* CARDS */}
@@ -1458,11 +1522,11 @@ const toggleFAQ = (index: number) => {
           <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
             <HandCoins size={34} className="text-[#0b1437] mb-6" />
             <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-              Start Direct Orders on Your Website
+Discovery & Strategy 
             </h3>
             <p className="text-[#6b6b6b] leading-relaxed">
-              Launch a branded, commission-free food ordering website that’s
-              mobile-ready and fully under your control.
+              We start by understanding your business goals, target audience, and competitive landscape to create a strategic roadmap for your app's success.
+
             </p>
           </div>
 
@@ -1470,11 +1534,11 @@ const toggleFAQ = (index: number) => {
           <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
             <Smartphone size={34} className="text-[#0b1437] mb-6" />
             <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-              Offer App Convenience to Customers
+Design & Prototyping 
             </h3>
             <p className="text-[#6b6b6b] leading-relaxed">
-              Let your customers order from anywhere with your own white-label
-              food ordering app for iOS and Android.
+              Our UI/UX experts craft intuitive, engaging interfaces with interactive prototypes that bring your vision to life before a single line of code is written.
+
             </p>
           </div>
 
@@ -1482,11 +1546,11 @@ const toggleFAQ = (index: number) => {
           <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
             <QrCode size={34} className="text-[#0b1437] mb-6" />
             <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-              Enable QR Code Table Ordering
+Development & Testing 
             </h3>
             <p className="text-[#6b6b6b] leading-relaxed">
-              Dine-in customers can scan, browse your menu, order, and pay —
-              fast and contact-free.
+            Our developers build your app using agile methodology, with rigorous testing at every stage to ensure flawless functionality, security, and performance.
+
             </p>
           </div>
 
@@ -1501,7 +1565,7 @@ const toggleFAQ = (index: number) => {
 
         {/* HEADING */}
         <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-          Why Choose 2DigitInnovations?
+Why Choose 2Digit Innovations for Mobile App Development?
         </h2>
 
         {/* CARDS */}
@@ -1511,10 +1575,11 @@ const toggleFAQ = (index: number) => {
           <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
             <Rocket size={34} className="text-[#fff] mb-6" />
             <h3 className="text-xl font-semibold text-[#fff] mb-3">
-              Launch Fast
+Proven Expertise Across Technologies 
             </h3>
             <p className="text-[#fff] leading-relaxed">
-              Get your branded platform live in just 3–5 days
+With 500+ completed projects and 450+ satisfied clients, we've mastered every mobile platform and framework, ensuring your app is built with cutting-edge technologies.
+
             </p>
           </div>
 
@@ -1522,10 +1587,10 @@ const toggleFAQ = (index: number) => {
           <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
             <HandCoins size={34} className="text-[#fff] mb-6" />
             <h3 className="text-xl font-semibold text-[#fff] mb-3">
-              Keep 100% Profits
+End-to-End Development Process
             </h3>
             <p className="text-[#fff] leading-relaxed">
-              Say goodbye to commission fees forever
+From concept and design to development, testing, and App Store launch, we handle everything with seamless execution that eliminates coordination hassles.
             </p>
           </div>
 
@@ -1533,10 +1598,10 @@ const toggleFAQ = (index: number) => {
           <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
             <MonitorCog size={34} className="text-[#fff] mb-6" />
             <h3 className="text-xl font-semibold text-[#fff] mb-3">
-              One Platform, Total Control
+Focus on Business Results
             </h3>
             <p className="text-[#fff] leading-relaxed">
-              Website, app, delivery, and orders in one place
+We build solutions that drive growth, every feature and interaction is designed to achieve your business objectives, from revenue to engagement.
             </p>
           </div>
 
@@ -1863,89 +1928,157 @@ const toggleFAQ = (index: number) => {
 </div>
 
     
-            {/* Footer */}
-      
-            <footer className="relative bg-[#6B5AFF] text-white py-16 overflow-hidden rounded-t-3xl">
-              {/* Decorative Ellipse */}
-              {/* <div className="absolute -top-12 -right-12 w-48 h-48 bg-purple-300 rounded-full opacity-40"></div> */}
-      
-              {/* Footer Content */}
-              <div className="relative max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* About */}
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">
-                    2digitinnovations
-                  </h3>
-                  <p className="text-purple-200">
-                    Helping businesses launch their online ordering & delivery systems
-                    quickly and efficiently.
-                  </p>
-                </div>
-      
-                {/* Quick Links */}
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">Quick Links</h3>
-                  <ul className="space-y-2 text-purple-200">
-                    <li>
-                      <a
-                        href="#features"
-                        className="hover:text-yellow-300 transition"
-                      >
-                        Features
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#pricing" className="hover:text-yellow-300 transition">
-                        Pricing
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#testimonials"
-                        className="hover:text-yellow-300 transition"
-                      >
-                        Testimonials
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#contact" className="hover:text-yellow-300 transition">
-                        Contact
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-      
-                {/* Contact */}
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">Contact Us</h3>
-                  <p>
-                    Email:{" "}
-                    <span className="text-yellow-300">
-                      support@2digitinnovations.com
-                    </span>
-                  </p>
-                  <p className="mt-2">
-                    Phone: <span className="text-yellow-300">+1 (555) 123-4567</span>
-                  </p>
-                  <div className="flex space-x-4 mt-4">
-                    <a href="#" className="hover:text-yellow-300 transition">
-                      Facebook
-                    </a>
-                    <a href="#" className="hover:text-yellow-300 transition">
-                      Twitter
-                    </a>
-                    <a href="#" className="hover:text-yellow-300 transition">
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
-              </div>
-      
-              {/* Bottom Copyright */}
-              {/* <div className="mt-12 text-center text-purple-200 text-sm">
-          &copy; {new Date().getFullYear()} 2digitinnovations. All rights reserved.
-        </div> */}
-            </footer>
+          {/* Footer */}
+
+      <footer className="bg-[#6c5ce7] text-white pt-16">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Logo & Social */}
+            <div>
+              <img
+                src="assests/2Digit.png"
+                alt="2Digit Innovations"
+                className="w-44 mb-4"
+              />
+              <h4 className="text-lg font-semibold mb-3">Follow</h4>
+             <div className="flex gap-3 flex-wrap">
+  {[
+    { icon: FaFacebookF, href: "https://www.facebook.com/2digitinnovations" },
+    { icon: FaInstagram, href: "https://www.instagram.com/2digitinnovations" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/2digitinnovations" },
+    { icon: FaDribbble, href: "https://dribbble.com/2digitinnovations" },
+    { icon: FaBehance, href: "https://www.behance.net/2digitinnovations" },
+    { icon: FaPinterestP, href: "https://www.pinterest.com/2digitinnovations" },
+  ].map(({ icon: Icon, href }, i) => (
+    <a
+      key={i}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-white p-2 rounded-full hover:bg-white hover:text-[#6c5ce7] transition"
+    >
+      <Icon size={14} />
+    </a>
+  ))}
+</div>
+
+            </div>
+
+  {/* Services */}
+      <div>
+        <h4 className="text-xl font-semibold mb-4">Services</h4>
+        <ul className="space-y-2 text-sm">
+          {[
+            { name: "App Development", href: "/app-development" },
+            { name: "Web App Development", href: "/web-app-development" },
+            { name: "Ecommerce Development", href: "/ecommerce-development" },
+            { name: "Ready-Made App Solutions", href: "/ready-made-app-solutions" },
+            { name: "UI And UX Designing", href: "/ui-ux-designing" },
+            { name: "Custom Mobile Software Development", href: "/custom-mobile-software-development" },
+            { name: "Emerging Technologies", href: "/emerging-technologies" },
+            { name: "Digital Marketing", href: "/digital-marketing" },
+            { name: "Quality Assurance Testing", href: "/quality-assurance-testing" },
+            { name: "Devops Cloud Services", href: "/devops-cloud-services" },
+            { name: "Maintenance Support", href: "/maintenance-support" },
+            { name: "Consulting Services", href: "/consulting-services" },
+          ].map((service) => (
+            <li key={service.href}>
+              <Link
+                href={service.href}
+                className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
+              >
+                {service.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+        <ul className="space-y-2 text-sm">
+          <li>
+            <Link
+              href="#"
+              className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
+            >
+              Our Apps
+            </Link>
+          </li>
+
+          <li>
+            <a
+              href="https://clutch.co/profile/2digit-innovations#highlights"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
+            >
+              Find us on Clutch
+            </a>
+          </li>
+
+          {[
+            { name: "Privacy & Policy", href: "/privacy" },
+            { name: "Shipping & Delivery Policy", href: "/shipping" },
+            { name: "Return & Refund Policy", href: "/refund" },
+            { name: "Terms & Condition", href: "/term" },
+            { name: "FAQs", href: "/faq" },
+            { name: "Legal", href: "/legal" },
+          ].map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="inline-block text-white hover:text-custom-yellow transition duration-300 transform hover:scale-105"
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Contact</h4>
+            <p className="text-sm leading-relaxed">
+              Hyde Park Crown First Floor, FF-14-21 Plot No GH-03 Sector-78,
+              Noida, Uttar Pradesh 201306
+            </p>
+
+            <p className="mt-3 text-sm text-yellow-300">
+              info@2digitinnovations.com
+            </p>
+            <p className="mt-1 text-sm text-yellow-300">+91 7814042409</p>
+
+            <div className="mt-4 flex items-center gap-2 border-b border-white pb-1">
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="bg-transparent outline-none text-sm placeholder:text-white flex-1"
+              />
+              <button className="text-sm font-semibold">Send</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/30 mt-12 py-6 px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm">
+            Copyright © 2025{" "}
+            <span className="text-yellow-400 font-semibold">
+              2Digit Innovations PVT LTD.
+            </span>{" "}
+            All Rights Reserved
+          </p>
+
+          <Link
+            href="/contact"
+            className="bg-yellow-400 text-black px-6 py-2 rounded-md font-medium"
+          >
+            Contact
+          </Link>
+        </div>
+      </footer>
           </main>
         );
       }
