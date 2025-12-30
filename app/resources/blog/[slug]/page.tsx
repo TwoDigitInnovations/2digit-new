@@ -117,7 +117,7 @@ export default function BlogDetail() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      <BlogSection />
+      {/* <BlogSection /> */}
 
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-4 gap-12">
         <article className="lg:col-span-3 space-y-20">
