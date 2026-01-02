@@ -3,31 +3,31 @@ import React from "react";
 const industries = [
   {
     title: "Technology Companies",
-    image: "/assests/technology.jpg",
+    image: "/assests/technology.png",
     description:
       "We help tech companies build scalable web applications, SaaS platforms, and enterprise solutions.",
   },
   {
     title: "E-commerce Businesses",
-    image: "/assests/ecommerce.jpg",
+    image: "/assests/e-commerce.png",
     description:
       "Launch and grow your online store with custom e-commerce solutions.",
   },
   {
     title: "Fintech & Financial Services",
-    image: "/assests/finetech.jpg",
+    image: "/assests/finetech.png",
     description:
       "Build secure, compliant financial applications with our expert team.",
   },
   {
     title: "Healthcare & Medical Services",
-    image: "/assests/health.jpg",
+    image: "/assests/health.png",
     description:
       "Develop HIPAA-compliant healthcare applications that improve patient care.",
   },
   {
     title: "Education & E-learning",
-    image: "/assests/e-learning.jpg",
+    image: "/assests/e-learning.png",
     description:
       "Transform education with digital learning platforms and LMS systems.",
   },

@@ -260,14 +260,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex-shrink-0">
           <Link href="/">
-            <Image
-              src="/assests/2digit.png"
-              alt="Logo"
-              width={150}
-              height={60}
-              className="w-28 md:w-36"
-              priority
-            />
+           <Image
+  src="/assests/2digit.png"
+  alt="Logo"
+  width={1550}
+  height={1800}
+  className="w-48 md:w-50"
+  priority
+/>
+
           </Link>
         </div>
         {/* Purple Dot */}
