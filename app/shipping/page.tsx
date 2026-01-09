@@ -1,21 +1,11 @@
 "use client";
 
-import { Footer } from "../components/Footer";
-import Navbar from "../components/Navbar";
 
 export default function Shipping() {
-  // const pricingMenu = ["Plans", "Compare Plans", "Enterprise"];
 
-  /* ---------------- SMALL COMPONENTS ---------------- */
-
-  // Mobile Accordion Component
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      {/* NAVBAR WITH MOBILE MENU */}
-      <Navbar />
-
-      {/* Section On TERMS */}
 
       <div className="text-center mt-10 md:mt-16 px-4 md:px-6">
         <h1 className="text-4xl md:text-5xl text-[#000] font-bold leading-tight relative z-20">
@@ -79,9 +69,6 @@ export default function Shipping() {
         </ul>
       </div>
 
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

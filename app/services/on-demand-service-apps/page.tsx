@@ -13,8 +13,7 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
+
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -119,9 +118,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
+
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -202,7 +199,7 @@ export default function Home() {
         </div>
 
         <h1 className="text-4xl md:text-5xl text-yellow-500 font-bold leading-tight relative z-20">
-         On-Demand Service App{"  "}
+          On-Demand Service App{"  "}
           <span className="text-black">
             Development Services | Connect{" "}
           </span>
@@ -211,7 +208,7 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-     Transform service delivery with powerful on-demand apps that connect customers with service providers in real-time. At 2Digit Innovations, we specialize in developing comprehensive on-demand platforms with instant booking, service tracking, payment processing, and provider management. Our portfolio includes successful apps like ADN Admin, SwiftGuard, and One America Window. From startups launching service marketplaces to enterprises digitalizing operations, we deliver solutions that drive real business results across the UK, USA, and India.
+          Transform service delivery with powerful on-demand apps that connect customers with service providers in real-time. At 2Digit Innovations, we specialize in developing comprehensive on-demand platforms with instant booking, service tracking, payment processing, and provider management. Our portfolio includes successful apps like ADN Admin, SwiftGuard, and One America Window. From startups launching service marketplaces to enterprises digitalizing operations, we deliver solutions that drive real business results across the UK, USA, and India.
         </p>
 
         <div className="flex justify-center mt-8">
@@ -259,7 +256,7 @@ export default function Home() {
         <section className="py-8 md:py-16">
           <div className="relative z-10 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-     Complete On-Demand Service Solutions for Your Business Growth
+              Complete On-Demand Service Solutions for Your Business Growth
             </h2>
 
             {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
@@ -303,11 +300,10 @@ export default function Home() {
             active:scale-95
             focus:outline-none focus:ring-4 focus:ring-purple-300
             md:hover:scale-105
-            ${
-              isActive
-                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-            }
+            ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
           `}
                     >
                       {feature.title}
@@ -330,11 +326,11 @@ export default function Home() {
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Instant Booking & Scheduling
+              Instant Booking & Scheduling
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Book Services in Seconds with Smart Scheduling: Enable effortless service booking with instant scheduling systems that match customers with available providers. We build platforms with real-time availability checking, flexible time slots, service customization options, and instant confirmations making it incredibly easy for customers to get the services they need when they need them.
+              Book Services in Seconds with Smart Scheduling: Enable effortless service booking with instant scheduling systems that match customers with available providers. We build platforms with real-time availability checking, flexible time slots, service customization options, and instant confirmations making it incredibly easy for customers to get the services they need when they need them.
 
             </p>
 
@@ -386,11 +382,11 @@ Book Services in Seconds with Smart Scheduling: Enable effortless service bookin
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Service Provider Management
+              Service Provider Management
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Comprehensive Tools for Provider Success: Empower your service providers with professional management tools including job assignments, earnings tracking, schedule management, and customer communication. We develop provider apps that streamline workflows, maximize productivity, and help professionals deliver exceptional service while growing their business.
+              Comprehensive Tools for Provider Success: Empower your service providers with professional management tools including job assignments, earnings tracking, schedule management, and customer communication. We develop provider apps that streamline workflows, maximize productivity, and help professionals deliver exceptional service while growing their business.
             </p>
 
             <div className="space-y-4">
@@ -423,7 +419,7 @@ Comprehensive Tools for Provider Success: Empower your service providers with pr
             <h2>Real-Time Service Tracking</h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-         Live Updates That Build Trust and Transparency: Keep customers informed with real-time service tracking from booking to completion. Our implementation includes provider location tracking, status updates, estimated arrival times, and service progress notifications, providing transparency that reduces anxiety and builds confidence in your platform.
+              Live Updates That Build Trust and Transparency: Keep customers informed with real-time service tracking from booking to completion. Our implementation includes provider location tracking, status updates, estimated arrival times, and service progress notifications, providing transparency that reduces anxiety and builds confidence in your platform.
             </p>
 
             <div className="space-y-4">
@@ -474,11 +470,11 @@ Comprehensive Tools for Provider Success: Empower your service providers with pr
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Payment & Rating Systems
+              Payment & Rating Systems
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-     Seamless Transactions and Quality Assurance: Enable hassle-free payments with integrated processing supporting multiple payment methods, automatic invoicing, and tip options. We implement comprehensive rating and review systems that maintain service quality, build trust, and help customers make informed decisions when choosing providers.
+              Seamless Transactions and Quality Assurance: Enable hassle-free payments with integrated processing supporting multiple payment methods, automatic invoicing, and tip options. We implement comprehensive rating and review systems that maintain service quality, build trust, and help customers make informed decisions when choosing providers.
             </p>
 
             <div className="space-y-4">
@@ -506,7 +502,7 @@ Payment & Rating Systems
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-14">
-Our On-Demand Service App Development Process
+            Our On-Demand Service App Development Process
           </h2>
 
           {/* CARDS */}
@@ -515,10 +511,10 @@ Our On-Demand Service App Development Process
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <HandCoins size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-               Discovery & Service Strategy
+                Discovery & Service Strategy
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-            We understand your service category, target market, and operational model to design platforms that connect customers and providers efficiently.
+                We understand your service category, target market, and operational model to design platforms that connect customers and providers efficiently.
 
               </p>
             </div>
@@ -530,7 +526,7 @@ Our On-Demand Service App Development Process
                 Design & Development
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-              Our designers create user-friendly interfaces for customers and providers while developers build robust systems with booking, tracking, payments, and provider management.
+                Our designers create user-friendly interfaces for customers and providers while developers build robust systems with booking, tracking, payments, and provider management.
 
               </p>
             </div>
@@ -542,8 +538,8 @@ Our On-Demand Service App Development Process
                 Testing & Launch
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-        
-        We conduct real-world testing with service providers and customers, optimize matching algorithms and workflows, then launch your platform on App Store and Google Play.
+
+                We conduct real-world testing with service providers and customers, optimize matching algorithms and workflows, then launch your platform on App Store and Google Play.
               </p>
             </div>
           </div>
@@ -555,7 +551,7 @@ Our On-Demand Service App Development Process
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-          Why Choose 2Digit Innovations for On-Demand Service App Development?{" "}
+            Why Choose 2Digit Innovations for On-Demand Service App Development?{" "}
           </h2>
 
           {/* CARDS */}
@@ -564,10 +560,10 @@ Our On-Demand Service App Development Process
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <Rocket size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-             Proven On-Demand Expertise
+                Proven On-Demand Expertise
               </h3>
               <p className="text-[#fff] leading-relaxed">
-               With successful projects like ADN Admin, SwiftGuard, and One America Window, plus 500+ completed projects and 450+ satisfied clients, we understand service marketplace dynamics.
+                With successful projects like ADN Admin, SwiftGuard, and One America Window, plus 500+ completed projects and 450+ satisfied clients, we understand service marketplace dynamics.
 
               </p>
             </div>
@@ -576,10 +572,10 @@ Our On-Demand Service App Development Process
             <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
               <HandCoins size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-      Complete Marketplace Solutions 
+                Complete Marketplace Solutions
               </h3>
               <p className="text-[#fff] leading-relaxed">
-      From customer apps to provider tools and admin dashboards, we deliver end-to-end on-demand platforms that scale with your service business.
+                From customer apps to provider tools and admin dashboards, we deliver end-to-end on-demand platforms that scale with your service business.
 
               </p>
             </div>
@@ -588,10 +584,10 @@ Our On-Demand Service App Development Process
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <MonitorCog size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-         Focus on Service Excellence 
+                Focus on Service Excellence
               </h3>
               <p className="text-[#fff] leading-relaxed">
-We build platforms that ensure quality, every feature from provider vetting to ratings and tracking is designed to deliver exceptional service experiences.
+                We build platforms that ensure quality, every feature from provider vetting to ratings and tracking is designed to deliver exceptional service experiences.
 
 
               </p>
@@ -632,18 +628,10 @@ We build platforms that ensure quality, every feature from provider vetting to r
         </div>
       </section>
 
-      {/* Our Success */}
+
       <Crausel2 />
-
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
-
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

@@ -244,7 +244,7 @@ export default function Navbar() {
 
   return (
     <nav className="relative z-50 py-4 px-6 md:px-12 lg:px-16">
-        {/* Purple Ellipse Dot - Fixed & Visible */}
+      {/* Purple Ellipse Dot - Fixed & Visible */}
       <div
         className="absolute pointer-events-none z-0 hidden md:block"
         style={{
@@ -260,30 +260,30 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex-shrink-0">
           <Link href="/">
-           <Image
-  src="/assests/2digit.png"
-  alt="Logo"
-  width={1550}
-  height={1800}
-  className="w-48 md:w-50"
-  priority
-/>
+            <Image
+              src="/assests/2digit.png"
+              alt="Logo"
+              width={1550}
+              height={1800}
+              className="w-48 md:w-50"
+              priority
+            />
 
           </Link>
         </div>
-        {/* Purple Dot */}
-              <div
-        className="absolute rounded-full blur-3xl z-0"
-        style={{
-          width: "520px",
-          height: "520px",
-          top: "180px",
-          right: "-180px",
-          background:
-            "radial-gradient(ellipse at center, rgba(107,90,255,0.6) 0%, rgba(107,90,255,0) 70%)",
-          opacity: 0.55,
-        }}
-      ></div>
+       
+        <div
+          className="absolute rounded-full blur-3xl z-0"
+          style={{
+            width: "520px",
+            height: "520px",
+            top: "180px",
+            right: "-180px",
+            background:
+              "radial-gradient(ellipse at center, rgba(107,90,255,0.6) 0%, rgba(107,90,255,0) 70%)",
+            opacity: 0.55,
+          }}
+        ></div>
 
         <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md shadow-md rounded-full px-8 py-3 gap-8">
           {/* Services */}

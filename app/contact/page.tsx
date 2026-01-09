@@ -4,8 +4,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { FormEvent } from "react";
-import { Footer } from "../components/Footer";
-import Navbar from "../components/Navbar";
 import Link from "next/link";
 
 type Country = {
@@ -286,7 +284,7 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-purple-50">
-      <Navbar />
+   
 
       {/* Hero Contact Section with Animation */}
       <section className="py-24 px-6">
@@ -546,7 +544,6 @@ export default function Contact() {
         </motion.div>
       </section>
 
-      <Footer />
     </main>
   );
 }

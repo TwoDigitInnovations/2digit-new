@@ -11,20 +11,11 @@ import {
   Smartphone,
   QrCode,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaDribbble,
-  FaBehance,
-  FaPinterestP,
-} from "react-icons/fa";
-import { Footer } from "@/app/components/Footer";
+
 import { Faq } from "@/app/components/Faq";
 import { Ready } from "@/app/components/Ready";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Logo } from "@/app/components/Logo";
-import Navbar from "@/app/components/Navbar";
 
 export default function Home() {
   // Refs for SVG paths
@@ -74,9 +65,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
 
-      {/* Glows behind navbar */}
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -264,11 +253,10 @@ export default function Home() {
                 active:scale-95
                 focus:outline-none focus:ring-4 focus:ring-purple-300
                 md:hover:scale-105
-                ${
-                  isActive
-                    ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                    : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-                }
+                ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
               `}
                       aria-pressed={isActive}
                     >
@@ -621,9 +609,9 @@ export default function Home() {
 
       <Crausel1 />
       <Ready />
-      {/* Our Success */}
+
       <Faq />
-      <Footer />
+
     </main>
   );
 }

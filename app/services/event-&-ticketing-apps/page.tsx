@@ -13,8 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -119,9 +117,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
+
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -664,18 +660,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Success */}
       <Crausel2 />
-
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
-
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

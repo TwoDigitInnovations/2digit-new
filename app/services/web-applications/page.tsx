@@ -13,8 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -118,9 +116,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -201,14 +196,14 @@ export default function Home() {
         </div>
 
         <h1 className="text-4xl md:text-5xl text-yellow-500 font-bold leading-tight relative z-20">
-        Web Application Development{"  "}
+          Web Application Development{"  "}
           <span className="text-black">Services | Build Powerful </span>
           <br className="hidden md:block" />
           <span className="text-yellow-500">with Secure Web Portals</span>
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-Transform your business processes with sophisticated web applications that deliver desktop-like experiences through browsers. At 2Digit Innovations, we specialize in developing scalable SaaS platforms and enterprise web applications that handle complex workflows and serve thousands of users. From startups building innovative software products to enterprises digitalizing operations, we deliver web application solutions that drive real business results across the UK, USA, and India.
+          Transform your business processes with sophisticated web applications that deliver desktop-like experiences through browsers. At 2Digit Innovations, we specialize in developing scalable SaaS platforms and enterprise web applications that handle complex workflows and serve thousands of users. From startups building innovative software products to enterprises digitalizing operations, we deliver web application solutions that drive real business results across the UK, USA, and India.
 
         </p>
 
@@ -257,7 +252,7 @@ Transform your business processes with sophisticated web applications that deliv
         <section className="py-8 md:py-16">
           <div className="relative z-10 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-Complete Web Application Solutions for Your Business Growth
+              Complete Web Application Solutions for Your Business Growth
             </h2>
 
             {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
@@ -301,11 +296,10 @@ Complete Web Application Solutions for Your Business Growth
             active:scale-95
             focus:outline-none focus:ring-4 focus:ring-purple-300
             md:hover:scale-105
-            ${
-              isActive
-                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-            }
+            ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
           `}
                     >
                       {feature.title}
@@ -328,11 +322,11 @@ Complete Web Application Solutions for Your Business Growth
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-SaaS Applications
+              SaaS Applications
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Subscription-Based Software That Scales Globally: Build multi-tenant SaaS platforms that serve customers worldwide with subscription-based business models. We develop secure tenant isolation, implement subscription management and billing, create admin dashboards, and design scalable architectures, enabling you to launch software products that generate recurring revenue and scale effortlessly.
+              Subscription-Based Software That Scales Globally: Build multi-tenant SaaS platforms that serve customers worldwide with subscription-based business models. We develop secure tenant isolation, implement subscription management and billing, create admin dashboards, and design scalable architectures, enabling you to launch software products that generate recurring revenue and scale effortlessly.
 
             </p>
 
@@ -384,11 +378,11 @@ Subscription-Based Software That Scales Globally: Build multi-tenant SaaS platfo
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Enterprise Web Apps
+              Enterprise Web Apps
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Custom Applications for Complex Business Workflows: Create powerful enterprise web applications that automate processes and improve operational efficiency. We build workflow automation systems, implement role-based access controls, integrate with existing enterprise systems, and develop custom business logic, delivering applications that solve unique challenges and support strategic objectives.
+              Custom Applications for Complex Business Workflows: Create powerful enterprise web applications that automate processes and improve operational efficiency. We build workflow automation systems, implement role-based access controls, integrate with existing enterprise systems, and develop custom business logic, delivering applications that solve unique challenges and support strategic objectives.
 
             </p>
 
@@ -420,11 +414,11 @@ Custom Applications for Complex Business Workflows: Create powerful enterprise w
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Vendor Portals
+              Vendor Portals
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-        Efficient Collaboration with Supply Chain Partners: Develop vendor portals that streamline procurement, order management, and partner communications. We implement purchase order tracking, invoice submission systems, inventory visibility, and performance dashboards, improving supplier relationships, reducing processing time, and enhancing supply chain efficiency.
+              Efficient Collaboration with Supply Chain Partners: Develop vendor portals that streamline procurement, order management, and partner communications. We implement purchase order tracking, invoice submission systems, inventory visibility, and performance dashboards, improving supplier relationships, reducing processing time, and enhancing supply chain efficiency.
             </p>
 
             <div className="space-y-4">
@@ -512,7 +506,7 @@ Vendor Portals
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-14">
-Our Web Application Development Process
+            Our Web Application Development Process
           </h2>
 
           {/* CARDS */}
@@ -521,12 +515,12 @@ Our Web Application Development Process
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <HandCoins size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Discovery & Architecture Planning 
+                Discovery & Architecture Planning
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-We understand your business requirements, user workflows, and scalability needs to design robust application architectures that support long-term growth.
+                We understand your business requirements, user workflows, and scalability needs to design robust application architectures that support long-term growth.
 
-            
+
               </p>
             </div>
 
@@ -534,10 +528,10 @@ We understand your business requirements, user workflows, and scalability needs 
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <Smartphone size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Agile Development & Iteration
+                Agile Development & Iteration
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-Our developers build applications using agile methodology with regular sprints, continuous testing, and frequent deployments, ensuring quality and allowing flexibility as requirements evolve.
+                Our developers build applications using agile methodology with regular sprints, continuous testing, and frequent deployments, ensuring quality and allowing flexibility as requirements evolve.
 
               </p>
             </div>
@@ -546,11 +540,11 @@ Our developers build applications using agile methodology with regular sprints, 
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <QrCode size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Testing & Deployment              
-</h3>
+                Testing & Deployment
+              </h3>
 
               <p className="text-[#6b6b6b] leading-relaxed">
-We deploy applications to cloud infrastructure, implement monitoring and logging, optimize performance under load, then support scaling as your user base grows.
+                We deploy applications to cloud infrastructure, implement monitoring and logging, optimize performance under load, then support scaling as your user base grows.
 
               </p>
             </div>
@@ -563,7 +557,7 @@ We deploy applications to cloud infrastructure, implement monitoring and logging
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-Why Choose 2Digit Innovations for Web Application Development?
+            Why Choose 2Digit Innovations for Web Application Development?
           </h2>
 
           {/* CARDS */}
@@ -572,10 +566,10 @@ Why Choose 2Digit Innovations for Web Application Development?
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <Rocket size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Proven Application Expertise 
+                Proven Application Expertise
               </h3>
               <p className="text-[#fff] leading-relaxed">
-With 500+ completed projects and 450+ satisfied clients, we've built complex web applications across industries, ensuring your software is reliable, scalable, and maintainable
+                With 500+ completed projects and 450+ satisfied clients, we've built complex web applications across industries, ensuring your software is reliable, scalable, and maintainable
               </p>
             </div>
 
@@ -583,10 +577,10 @@ With 500+ completed projects and 450+ satisfied clients, we've built complex web
             <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
               <HandCoins size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Scalability-First Architecture
+                Scalability-First Architecture
               </h3>
               <p className="text-[#fff] leading-relaxed">
-From database design to server infrastructure, we build applications that handle growth seamlessly, supporting thousands of concurrent users without performance degradation.
+                From database design to server infrastructure, we build applications that handle growth seamlessly, supporting thousands of concurrent users without performance degradation.
 
               </p>
             </div>
@@ -595,10 +589,10 @@ From database design to server infrastructure, we build applications that handle
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <MonitorCog size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Focus on Business Value
+                Focus on Business Value
               </h3>
               <p className="text-[#fff] leading-relaxed">
-We develop applications that solve real problems, every feature, workflow, and integration is designed to improve efficiency, reduce costs, and support your strategic goals.
+                We develop applications that solve real problems, every feature, workflow, and integration is designed to improve efficiency, reduce costs, and support your strategic goals.
 
               </p>
             </div>
@@ -642,14 +636,7 @@ We develop applications that solve real problems, every feature, workflow, and i
       <Crausel2 />
 
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
-
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

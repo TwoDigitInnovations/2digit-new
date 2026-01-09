@@ -9,6 +9,8 @@ import {
   FaPinterestP,
 } from "react-icons/fa";
 import Link from 'next/link';
+
+
 export const Footer = () => {
   return (
     <footer className="bg-[#6c5ce7] text-white pt-16">
@@ -136,14 +138,7 @@ export const Footer = () => {
 
           <p className="mt-1 text-sm text-yellow-300">+91 7814042409</p>
 
-          {/* <div className="mt-4 flex items-center gap-2 border-b border-white pb-1">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="bg-transparent outline-none text-sm placeholder:text-white flex-1"
-              />
-              <button className="text-sm font-semibold">Send</button>
-            </div> */}
+        
         </div>
       </div>
 

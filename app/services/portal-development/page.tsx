@@ -13,8 +13,7 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
+
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -118,9 +117,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -208,7 +204,7 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-    Transform business operations with powerful web portals that connect stakeholders and streamline workflows. At 2Digit Innovations, we specialize in developing secure, feature-rich portals for customers, employees, and vendors. From startups building collaboration platforms to enterprises managing complex ecosystems, we deliver portal solutions that drive real business results across the UK, USA, and India.
+          Transform business operations with powerful web portals that connect stakeholders and streamline workflows. At 2Digit Innovations, we specialize in developing secure, feature-rich portals for customers, employees, and vendors. From startups building collaboration platforms to enterprises managing complex ecosystems, we deliver portal solutions that drive real business results across the UK, USA, and India.
 
         </p>
 
@@ -257,7 +253,7 @@ export default function Home() {
         <section className="py-8 md:py-16">
           <div className="relative z-10 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-Complete Portal Development Solutions for Your Business Growth
+              Complete Portal Development Solutions for Your Business Growth
             </h2>
 
             {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
@@ -301,11 +297,10 @@ Complete Portal Development Solutions for Your Business Growth
             active:scale-95
             focus:outline-none focus:ring-4 focus:ring-purple-300
             md:hover:scale-105
-            ${
-              isActive
-                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-            }
+            ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
           `}
                     >
                       {feature.title}
@@ -328,11 +323,11 @@ Complete Portal Development Solutions for Your Business Growth
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Customer Portals
+              Customer Portals
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-   Self-Service Platforms That Enhance Customer Experience: Build customer portals that empower users to manage accounts, access resources, and get support independently. We develop secure login systems, implement account management features, create document libraries, and integrate support ticketing, reducing support costs while improving customer satisfaction and engagement.
+              Self-Service Platforms That Enhance Customer Experience: Build customer portals that empower users to manage accounts, access resources, and get support independently. We develop secure login systems, implement account management features, create document libraries, and integrate support ticketing, reducing support costs while improving customer satisfaction and engagement.
 
             </p>
 
@@ -384,11 +379,11 @@ Customer Portals
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Employee Portals
+              Employee Portals
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Centralized Hub for Workforce Productivity: Create employee intranets that centralize communication, resources, and workflows in one accessible platform. We build HR information systems, implement internal communications, design document management, and integrate time tracking, improving collaboration, reducing email overload, and boosting employee productivity.
+              Centralized Hub for Workforce Productivity: Create employee intranets that centralize communication, resources, and workflows in one accessible platform. We build HR information systems, implement internal communications, design document management, and integrate time tracking, improving collaboration, reducing email overload, and boosting employee productivity.
 
             </p>
 
@@ -420,11 +415,11 @@ Centralized Hub for Workforce Productivity: Create employee intranets that centr
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Vendor Portals
+              Vendor Portals
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-        Efficient Collaboration with Supply Chain Partners: Develop vendor portals that streamline procurement, order management, and partner communications. We implement purchase order tracking, invoice submission systems, inventory visibility, and performance dashboards, improving supplier relationships, reducing processing time, and enhancing supply chain efficiency.
+              Efficient Collaboration with Supply Chain Partners: Develop vendor portals that streamline procurement, order management, and partner communications. We implement purchase order tracking, invoice submission systems, inventory visibility, and performance dashboards, improving supplier relationships, reducing processing time, and enhancing supply chain efficiency.
             </p>
 
             <div className="space-y-4">
@@ -521,12 +516,12 @@ Vendor Portals
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <HandCoins size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Requirements & Architecture
+                Requirements & Architecture
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-We understand your stakeholder needs, workflow requirements, and security concerns to design portal architectures that streamline operations effectively.
+                We understand your stakeholder needs, workflow requirements, and security concerns to design portal architectures that streamline operations effectively.
 
-            
+
               </p>
             </div>
 
@@ -537,7 +532,7 @@ We understand your stakeholder needs, workflow requirements, and security concer
                 Design & Development
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-               Our team creates intuitive interfaces for different user roles while developers build secure portals with role-based access, data management, and integration capabilities.
+                Our team creates intuitive interfaces for different user roles while developers build secure portals with role-based access, data management, and integration capabilities.
 
               </p>
             </div>
@@ -546,11 +541,11 @@ We understand your stakeholder needs, workflow requirements, and security concer
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <QrCode size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Testing & Deployment              
-</h3>
+                Testing & Deployment
+              </h3>
 
               <p className="text-[#6b6b6b] leading-relaxed">
-               We conduct security testing, validate workflows with actual users, train portal administrators, then deploy with comprehensive documentation and ongoing support.
+                We conduct security testing, validate workflows with actual users, train portal administrators, then deploy with comprehensive documentation and ongoing support.
 
               </p>
             </div>
@@ -563,7 +558,7 @@ Testing & Deployment
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-Why Choose 2Digit Innovations for Portal Development?
+            Why Choose 2Digit Innovations for Portal Development?
           </h2>
 
           {/* CARDS */}
@@ -572,10 +567,10 @@ Why Choose 2Digit Innovations for Portal Development?
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <Rocket size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Proven Portal Expertise
+                Proven Portal Expertise
               </h3>
               <p className="text-[#fff] leading-relaxed">
-           With 500+ completed projects and 450+ satisfied clients, we've built secure portals across industries, ensuring your platform meets enterprise security and usability standards.
+                With 500+ completed projects and 450+ satisfied clients, we've built secure portals across industries, ensuring your platform meets enterprise security and usability standards.
 
               </p>
             </div>
@@ -584,10 +579,10 @@ Proven Portal Expertise
             <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
               <HandCoins size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Security-First Approach
+                Security-First Approach
               </h3>
               <p className="text-[#fff] leading-relaxed">
-               From authentication to data encryption and role-based access, we implement robust security measures to protect sensitive business information and user data.
+                From authentication to data encryption and role-based access, we implement robust security measures to protect sensitive business information and user data.
 
               </p>
             </div>
@@ -596,10 +591,10 @@ Security-First Approach
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <MonitorCog size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Focus on Operational Efficiency
+                Focus on Operational Efficiency
               </h3>
               <p className="text-[#fff] leading-relaxed">
-               We build portals that streamline workflows, every feature from document management to communication tools is designed to reduce manual work and improve productivity.
+                We build portals that streamline workflows, every feature from document management to communication tools is designed to reduce manual work and improve productivity.
 
               </p>
             </div>
@@ -639,18 +634,11 @@ Focus on Operational Efficiency
         </div>
       </section>
 
-      {/* Our Success */}
+
       <Crausel2 />
-
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
 
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

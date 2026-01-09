@@ -26,54 +26,54 @@ import {
   Lightbulb,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
+
 import { Ready } from "@/app/components/Ready";
-import Navbar from "@/app/components/Navbar";
+
 
 export default function About() {
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-<motion.section
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 1.2 }}
-  className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
->
-  {/* Background Image - Full Section */}
-  <Image
-    src="/assests/images/about1.png"
-    alt="2Digit Innovations Team"
-    fill
-    className="object-cover"
-    priority
-  />
 
-  {/* Overlay Content */}
-  <div className="relative z-10 text-center px-6 md:px-10">
-    <motion.div
-      initial={{ scale: 0.6, opacity: 0, y: 50 }}
-      animate={{ scale: 1, opacity: 1, y: 0 }}
-      transition={{
-        delay: 0.6,
-        duration: 1.4,
-        type: "spring",
-        stiffness: 90,
-        damping: 12,
-      }}
-      className="flex flex-col items-center max-w-4xl mx-auto"
-    >
-      {/* Text and Description */}
-      <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-6">
-        Welcome to 2Digit Innovations
-      </h1>
-      <p className="text-lg md:text-xl text-white/90 max-w-2xl drop-shadow-md">
-        We create digital solutions that help businesses grow, from custom
-        software to mobile apps, web development, and AI-powered innovations.
-      </p>
-    </motion.div>
-  </div>
-</motion.section>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      >
+        {/* Background Image - Full Section */}
+        <Image
+          src="/assests/images/about1.png"
+          alt="2Digit Innovations Team"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        {/* Overlay Content */}
+        <div className="relative z-10 text-center px-6 md:px-10">
+          <motion.div
+            initial={{ scale: 0.6, opacity: 0, y: 50 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.6,
+              duration: 1.4,
+              type: "spring",
+              stiffness: 90,
+              damping: 12,
+            }}
+            className="flex flex-col items-center max-w-4xl mx-auto"
+          >
+            {/* Text and Description */}
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-6">
+              Welcome to 2Digit Innovations
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl drop-shadow-md">
+              We create digital solutions that help businesses grow, from custom
+              software to mobile apps, web development, and AI-powered innovations.
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* What We Do */}
       <section className="bg-[#f7f7f4] py-20 px-4 md:px-10">
@@ -546,7 +546,7 @@ export default function About() {
       </section>
 
       <Ready />
-      <Footer />
+
     </main>
   );
 }

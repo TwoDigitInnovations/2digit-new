@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Footer } from "./components/Footer";
-import Navbar from "./components/Navbar";
 import Image from "next/image";
 import Link from "next/link"; // Add this import
 import { Logo } from "./components/Logo";
@@ -59,34 +57,34 @@ export default function Home() {
   }, []);
 
   // title
-const [active, setActive] = useState<number | null>(null);
-const features = [
-  {
-    id: 1,
-    title: "Web Development",
-    link: "/services/web-development",
-  },
-  {
-    id: 2,
-    title: "Mobile App Development",
-    link: "/services/mobile-app-development",
-  },
-  {
-    id: 3,
-    title: "UI/UX Design",
-    link: "/services/ui/ux-design",
-  },
-  {
-    id: 4,
-    title: "Digital Marketing",
-    link: "/services/digital-marketing",
-  },
-  {
-    id: 5,
-    title: "Custom Solutions",
-    link: "/services/custom-software-development",
-  },
-];
+  const [active, setActive] = useState<number | null>(null);
+  const features = [
+    {
+      id: 1,
+      title: "Web Development",
+      link: "/services/web-development",
+    },
+    {
+      id: 2,
+      title: "Mobile App Development",
+      link: "/services/mobile-app-development",
+    },
+    {
+      id: 3,
+      title: "UI/UX Design",
+      link: "/services/ui/ux-design",
+    },
+    {
+      id: 4,
+      title: "Digital Marketing",
+      link: "/services/digital-marketing",
+    },
+    {
+      id: 5,
+      title: "Custom Solutions",
+      link: "/services/custom-software-development",
+    },
+  ];
 
 
   function Pill({ text, style }: { text: string; style: string }) {
@@ -102,21 +100,9 @@ const features = [
     );
   }
 
-  // const pricingMenu = ["Plans", "Compare Plans", "Enterprise"];
-
-  /* ---------------- SMALL COMPONENTS ---------------- */
-
-  // Tab component ko update karein (clickable + link)
-  // Tab component ko update karein (clickable + link)
-
-  /* ---------------- DATA ---------------- */
-
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-    
-
-      {/* Glows behind navbar */}
+ 
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -257,17 +243,17 @@ const features = [
         {/* LOGO */}
         <Logo />
 
-    {/* Title Section */}
-<section className="py-8 md:py-16">
-  <div className="relative z-10 px-4">
-    <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-      Complete Digital Solutions for Your Business Growth
-    </h2>
+        {/* Title Section */}
+        <section className="py-8 md:py-16">
+          <div className="relative z-10 px-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
+              Complete Digital Solutions for Your Business Growth
+            </h2>
 
-    {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
-    <div className="overflow-x-auto md:overflow-visible -mx-4 md:mx-0 scrollbar-hide">
-      <div
-        className="
+            {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
+            <div className="overflow-x-auto md:overflow-visible -mx-4 md:mx-0 scrollbar-hide">
+              <div
+                className="
           flex
           flex-nowrap
           md:flex-wrap
@@ -279,21 +265,21 @@ const features = [
           min-w-max
           md:min-w-0
         "
-      >
-  {features.map((feature) => {
-  const isActive = active === feature.id;
+              >
+                {features.map((feature) => {
+                  const isActive = active === feature.id;
 
-  return (
-    <Link key={feature.id} href={feature.link}>
-      <button
-        onClick={() => setActive(feature.id)}
-        onMouseEnter={() =>
-          window.innerWidth >= 768 && setActive(feature.id)
-        }
-        onMouseLeave={() =>
-          window.innerWidth >= 768 && setActive(null)
-        }
-        className={`
+                  return (
+                    <Link key={feature.id} href={feature.link}>
+                      <button
+                        onClick={() => setActive(feature.id)}
+                        onMouseEnter={() =>
+                          window.innerWidth >= 768 && setActive(feature.id)
+                        }
+                        onMouseLeave={() =>
+                          window.innerWidth >= 768 && setActive(null)
+                        }
+                        className={`
           flex-shrink-0
           whitespace-nowrap
           px-6 py-3
@@ -305,25 +291,24 @@ const features = [
           active:scale-95
           focus:outline-none focus:ring-4 focus:ring-purple-300
           md:hover:scale-105
-          ${
-            isActive
-              ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-              : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-          }
+          ${isActive
+                            ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                            : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                          }
         `}
-        aria-pressed={isActive}
-      >
-        {feature.title}
-      </button>
-    </Link>
-  );
-})}
-     
-      </div>
-    </div>
-  </div>
-</section>
-  
+                        aria-pressed={isActive}
+                      >
+                        {feature.title}
+                      </button>
+                    </Link>
+                  );
+                })}
+
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
 
       {/* Online Ordering */}
@@ -495,10 +480,9 @@ const features = [
       {/* Our Success */}
       <Crausel2 />
 
-  
-     <Ready />
 
-      <Footer />
+      <Ready />
+
     </main>
   );
 }

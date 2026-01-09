@@ -12,8 +12,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Faq } from "@/app/components/Faq";
 import { Ready } from "@/app/components/Ready";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -69,28 +67,28 @@ export default function Home() {
   // title
   const [active, setActive] = useState<string | null>(null);
 
-const features = [
-  {
-    label: "Food Delivery App Solution",
-    href: "/food-delivery-app",
-  },
-  {
-    label: "Grocery Delivery App Solution",
-    href: "/grocery-delivery-app",
-  },
-  {
-    label: "Taxi Booking App Solution",
-    href: "/taxi-booking-app",
-  },
-  {
-    label: "E-commerce App Solution",
-    href: "/ecommerce-app",
-  },
-  {
-    label: "Clothing Store App Solution",
-    href: "/clothing-store-app",
-  },
-];
+  const features = [
+    {
+      label: "Food Delivery App Solution",
+      href: "/food-delivery-app",
+    },
+    {
+      label: "Grocery Delivery App Solution",
+      href: "/grocery-delivery-app",
+    },
+    {
+      label: "Taxi Booking App Solution",
+      href: "/taxi-booking-app",
+    },
+    {
+      label: "E-commerce App Solution",
+      href: "/ecommerce-app",
+    },
+    {
+      label: "Clothing Store App Solution",
+      href: "/clothing-store-app",
+    },
+  ];
 
 
   const industries = [
@@ -159,11 +157,6 @@ const features = [
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-
-      {/* NAVBAR WITH MOBILE MENU */}
-
-      {/* Glows behind navbar */}
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -323,20 +316,20 @@ const features = [
           md:min-w-0
         "
               >
-             {features.map((feature) => {
-  const isActive = active === feature.label;
+                {features.map((feature) => {
+                  const isActive = active === feature.label;
 
-  return (
-    <Link
-      key={feature.label}
-      href={feature.href}
-      onMouseEnter={() =>
-        window.innerWidth >= 768 && setActive(feature.label)
-      }
-      onMouseLeave={() =>
-        window.innerWidth >= 768 && setActive(null)
-      }
-      className={`
+                  return (
+                    <Link
+                      key={feature.label}
+                      href={feature.href}
+                      onMouseEnter={() =>
+                        window.innerWidth >= 768 && setActive(feature.label)
+                      }
+                      onMouseLeave={() =>
+                        window.innerWidth >= 768 && setActive(null)
+                      }
+                      className={`
         flex-shrink-0
         whitespace-nowrap
         px-6 py-3
@@ -348,18 +341,17 @@ const features = [
         active:scale-95
         focus:outline-none focus:ring-4 focus:ring-purple-300
         md:hover:scale-105
-        ${
-          isActive
-            ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-            : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-        }
+        ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
       `}
-      aria-pressed={isActive}
-    >
-      {feature.label}
-    </Link>
-  );
-})}
+                      aria-pressed={isActive}
+                    >
+                      {feature.label}
+                    </Link>
+                  );
+                })}
 
               </div>
             </div>
@@ -704,13 +696,7 @@ const features = [
       {/* Our Success */}
       <Crausel2 />
       <Ready />
-      {/* FAQ */}
-
       <Faq />
-
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

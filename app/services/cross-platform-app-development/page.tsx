@@ -13,8 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -115,10 +113,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
-
       <div
         className="absolute rounded-full blur-3xl z-0"
         style={{
@@ -207,7 +201,7 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-         Transform your app idea into reality on both iOS and Android simultaneously with cross-platform development that saves time and money. At 2Digit Innovations, we specialize in cross-platform app development using React Native and Flutter to create high-performance applications from a single codebase. From startups maximizing their budget to enterprises scaling quickly across platforms, we deliver seamless mobile experiences that drive real business results across the UK, USA, and India.
+          Transform your app idea into reality on both iOS and Android simultaneously with cross-platform development that saves time and money. At 2Digit Innovations, we specialize in cross-platform app development using React Native and Flutter to create high-performance applications from a single codebase. From startups maximizing their budget to enterprises scaling quickly across platforms, we deliver seamless mobile experiences that drive real business results across the UK, USA, and India.
         </p>
 
         <div className="flex justify-center mt-8">
@@ -255,7 +249,7 @@ export default function Home() {
         <section className="py-8 md:py-16">
           <div className="relative z-10 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-        Complete Cross-Platform Development Solutions for Your Business Growth
+              Complete Cross-Platform Development Solutions for Your Business Growth
             </h2>
 
             {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
@@ -299,11 +293,10 @@ export default function Home() {
             active:scale-95
             focus:outline-none focus:ring-4 focus:ring-purple-300
             md:hover:scale-105
-            ${
-              isActive
-                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-            }
+            ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
           `}
                     >
                       {feature.title}
@@ -326,11 +319,11 @@ export default function Home() {
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-React Native Development
+              React Native Development
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-        JavaScript-Powered Apps with Native Performance: Build powerful cross-platform applications with React Native that deliver native-like experiences on iOS and Android. Our React Native experts leverage JavaScript and React to create feature-rich mobile apps with single codebase efficiency, reducing development time by 50% while maintaining excellent performance and user experience across platforms.
+              JavaScript-Powered Apps with Native Performance: Build powerful cross-platform applications with React Native that deliver native-like experiences on iOS and Android. Our React Native experts leverage JavaScript and React to create feature-rich mobile apps with single codebase efficiency, reducing development time by 50% while maintaining excellent performance and user experience across platforms.
 
             </p>
 
@@ -382,11 +375,11 @@ React Native Development
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Flutter Development
+              Flutter Development
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-          Beautiful, Fast Apps with Google's Framework: Create stunning cross-platform applications with Flutter that look and feel native on every platform. Our Flutter developers use Dart language and Flutter's rich widget library to build visually beautiful, high-performance apps with pixel-perfect UI delivering consistent experiences that delight users on iOS, Android, and beyond.
+              Beautiful, Fast Apps with Google's Framework: Create stunning cross-platform applications with Flutter that look and feel native on every platform. Our Flutter developers use Dart language and Flutter's rich widget library to build visually beautiful, high-performance apps with pixel-perfect UI delivering consistent experiences that delight users on iOS, Android, and beyond.
             </p>
 
             <div className="space-y-4">
@@ -513,7 +506,7 @@ Flutter Development
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-14">
-Our Cross-Platform Development Process
+            Our Cross-Platform Development Process
           </h2>
 
           {/* CARDS */}
@@ -525,7 +518,7 @@ Our Cross-Platform Development Process
                 Discovery & Planning
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-             We understand your app requirements, target platforms, and business goals to determine the optimal cross-platform framework and create an efficient development strategy.
+                We understand your app requirements, target platforms, and business goals to determine the optimal cross-platform framework and create an efficient development strategy.
 
               </p>
             </div>
@@ -534,10 +527,10 @@ Our Cross-Platform Development Process
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <Smartphone size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
- Design & Development 
-               </h3>
+                Design & Development
+              </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-               Our designers create platform-adaptive interfaces while cross-platform developers build robust apps using React Native or Flutter, ensuring native look-and-feel on each platform.
+                Our designers create platform-adaptive interfaces while cross-platform developers build robust apps using React Native or Flutter, ensuring native look-and-feel on each platform.
 
               </p>
             </div>
@@ -546,10 +539,10 @@ Our Cross-Platform Development Process
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <QrCode size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Testing & Dual Platform Launch 
+                Testing & Dual Platform Launch
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-               We test thoroughly on iOS and Android devices, optimize for both App Store and Google Play guidelines, then launch simultaneously on both platforms.
+                We test thoroughly on iOS and Android devices, optimize for both App Store and Google Play guidelines, then launch simultaneously on both platforms.
 
               </p>
             </div>
@@ -562,7 +555,7 @@ Testing & Dual Platform Launch
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-          Why Choose 2Digit Innovations for Cross-Platform Development?
+            Why Choose 2Digit Innovations for Cross-Platform Development?
           </h2>
 
           {/* CARDS */}
@@ -571,10 +564,10 @@ Testing & Dual Platform Launch
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <Rocket size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-        Proven Cross-Platform Expertise
+                Proven Cross-Platform Expertise
               </h3>
               <p className="text-[#fff] leading-relaxed">
-              With 500+ completed projects and 450+ satisfied clients, we've mastered React Native and Flutter development, ensuring your app performs excellently on all platforms.
+                With 500+ completed projects and 450+ satisfied clients, we've mastered React Native and Flutter development, ensuring your app performs excellently on all platforms.
 
               </p>
             </div>
@@ -583,10 +576,10 @@ Testing & Dual Platform Launch
             <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
               <HandCoins size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-      Cost-Effective Excellence
+                Cost-Effective Excellence
               </h3>
               <p className="text-[#fff] leading-relaxed">
-               We build apps that feel native everywhere, every interaction and design element is optimized to match platform conventions while maintaining your brand identity.
+                We build apps that feel native everywhere, every interaction and design element is optimized to match platform conventions while maintaining your brand identity.
 
               </p>
             </div>
@@ -638,19 +631,10 @@ Testing & Dual Platform Launch
           ))}
         </div>
       </section>
-
-      {/* Our Success */}
       <Crausel2 />
-
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
 
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

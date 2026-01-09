@@ -12,8 +12,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Faq } from "@/app/components/Faq";
 import { Ready } from "@/app/components/Ready";
@@ -85,13 +83,13 @@ export default function Home() {
   // title
   const [active, setActive] = useState<string | null>(null);
 
-const features = [
-  { title: "Frontend Development", href: "/services/frontend" },
-  { title: "Backend Development", href: "/services/backend" },
-  { title: "Full-Stack Development", href: "/services/fullstack" },
-  { title: "CMS Development", href: "/services/cms" },
-  { title: "Corporate Websites", href: "/services/corporate-websites" },
-];
+  const features = [
+    { title: "Frontend Development", href: "/services/frontend" },
+    { title: "Backend Development", href: "/services/backend" },
+    { title: "Full-Stack Development", href: "/services/fullstack" },
+    { title: "CMS Development", href: "/services/cms" },
+    { title: "Corporate Websites", href: "/services/corporate-websites" },
+  ];
 
 
   const items = [
@@ -126,12 +124,6 @@ const features = [
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-
-      {/* NAVBAR WITH MOBILE MENU */}
-
-      {/* Glows behind navbar */}
-
       <div
         className="absolute rounded-full blur-3xl z-0"
         style={{
@@ -293,21 +285,21 @@ const features = [
           md:min-w-0
         "
               >
-             {features.map((feature) => {
-  const isActive = active === feature.title;
+                {features.map((feature) => {
+                  const isActive = active === feature.title;
 
-  return (
-    <Link
-      key={feature.title}
-      href={feature.href}
-      onClick={() => setActive(feature.title)}
-      onMouseEnter={() =>
-        window.innerWidth >= 768 && setActive(feature.title)
-      }
-      onMouseLeave={() =>
-        window.innerWidth >= 768 && setActive(null)
-      }
-      className={`
+                  return (
+                    <Link
+                      key={feature.title}
+                      href={feature.href}
+                      onClick={() => setActive(feature.title)}
+                      onMouseEnter={() =>
+                        window.innerWidth >= 768 && setActive(feature.title)
+                      }
+                      onMouseLeave={() =>
+                        window.innerWidth >= 768 && setActive(null)
+                      }
+                      className={`
         flex-shrink-0
         whitespace-nowrap
         px-6 py-3
@@ -319,18 +311,17 @@ const features = [
         active:scale-95
         focus:outline-none focus:ring-4 focus:ring-purple-300
         md:hover:scale-105
-        ${
-          isActive
-            ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-            : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-        }
+        ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
       `}
-      aria-pressed={isActive}
-    >
-      {feature.title}
-    </Link>
-  );
-})}
+                      aria-pressed={isActive}
+                    >
+                      {feature.title}
+                    </Link>
+                  );
+                })}
 
               </div>
             </div>
@@ -673,17 +664,10 @@ const features = [
         </div>
       </section>
 
-      {/* Our Success */}
+  
       <Crausel2 />
-
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

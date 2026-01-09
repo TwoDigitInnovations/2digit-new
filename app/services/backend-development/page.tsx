@@ -13,8 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -22,15 +20,10 @@ import { Ready } from "@/app/components/Ready";
 import { Faq } from "@/app/components/Faq";
 
 export default function Home() {
-  // Logo carousel auto-scroll
 
-  // Mouse-following purple dot
-
-  // Refs for SVG paths
   const upperPathRef = useRef<SVGPathElement>(null);
   const lowerPathRef = useRef<SVGPathElement>(null);
 
-  // Animate moving dots on BOTH curves
   useEffect(() => {
     const animateDot = (
       path: SVGPathElement | null,
@@ -119,9 +112,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -671,10 +661,6 @@ export default function Home() {
       {/* FAQ */}
 
       <Faq />
-
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

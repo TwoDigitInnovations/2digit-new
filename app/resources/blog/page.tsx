@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 
 type Blog = {
   id: string;
@@ -62,9 +60,7 @@ export default function Blog() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-
-      {/* Hero Search Section */}
+  
       <section className="bg-gradient-to-b from-white to-purple-50 py-32 px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -307,7 +303,7 @@ export default function Blog() {
         </motion.div>
       </section>
 
-      <Footer />
+   
     </main>
   );
 }

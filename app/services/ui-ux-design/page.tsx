@@ -12,8 +12,7 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
+
 import { Faq } from "@/app/components/Faq";
 import { Ready } from "@/app/components/Ready";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -124,11 +123,7 @@ const features = [
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-
-      {/* NAVBAR WITH MOBILE MENU */}
-
-      {/* Glows behind navbar */}
+  
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -674,9 +669,6 @@ const features = [
       {/* FAQ */}
       <Faq />
 
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

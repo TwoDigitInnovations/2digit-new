@@ -13,8 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -119,9 +117,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
+
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -209,7 +205,7 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-    Transform your applications into connected systems with powerful APIs that enable seamless data exchange and third-party integrations. At 2Digit Innovations, we specialize in developing RESTful APIs, implementing GraphQL, and integrating external services to create cohesive digital ecosystems. From startups building API-first products to enterprises connecting legacy systems, we deliver API solutions that drive real business results across the UK, USA, and India.
+          Transform your applications into connected systems with powerful APIs that enable seamless data exchange and third-party integrations. At 2Digit Innovations, we specialize in developing RESTful APIs, implementing GraphQL, and integrating external services to create cohesive digital ecosystems. From startups building API-first products to enterprises connecting legacy systems, we deliver API solutions that drive real business results across the UK, USA, and India.
 
         </p>
 
@@ -258,7 +254,7 @@ export default function Home() {
         <section className="py-8 md:py-16">
           <div className="relative z-10 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-Complete API Development & Integration Solutions for Your Business Growth
+              Complete API Development & Integration Solutions for Your Business Growth
             </h2>
 
             {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
@@ -302,11 +298,10 @@ Complete API Development & Integration Solutions for Your Business Growth
             active:scale-95
             focus:outline-none focus:ring-4 focus:ring-purple-300
             md:hover:scale-105
-            ${
-              isActive
-                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-            }
+            ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
           `}
                     >
                       {feature.title}
@@ -329,11 +324,11 @@ Complete API Development & Integration Solutions for Your Business Growth
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-RESTful API Development
+              RESTful API Development
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-       Industry-Standard APIs for Reliable Communication: Build robust RESTful APIs that enable seamless communication between applications and services. We design intuitive endpoint structures, implement proper HTTP methods, add authentication and authorization, and create comprehensive documentation, delivering APIs that are secure, scalable, and easy for developers to integrate.
+              Industry-Standard APIs for Reliable Communication: Build robust RESTful APIs that enable seamless communication between applications and services. We design intuitive endpoint structures, implement proper HTTP methods, add authentication and authorization, and create comprehensive documentation, delivering APIs that are secure, scalable, and easy for developers to integrate.
 
             </p>
 
@@ -385,11 +380,11 @@ RESTful API Development
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-GraphQL Implementation
+              GraphQL Implementation
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Flexible Data Queries for Modern Applications: Create efficient GraphQL APIs that let clients request exactly the data they need. We design flexible schemas, implement efficient resolvers, optimize query performance, and add real-time subscriptions, reducing over-fetching and enabling dynamic, responsive applications with minimal network overhead.
+              Flexible Data Queries for Modern Applications: Create efficient GraphQL APIs that let clients request exactly the data they need. We design flexible schemas, implement efficient resolvers, optimize query performance, and add real-time subscriptions, reducing over-fetching and enabling dynamic, responsive applications with minimal network overhead.
             </p>
 
             <div className="space-y-4">
@@ -420,11 +415,11 @@ Flexible Data Queries for Modern Applications: Create efficient GraphQL APIs tha
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Third-Party Integrations
+              Third-Party Integrations
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Connect with Payment, CRM, and Business Tools: Extend your application's capabilities by integrating with external services and platforms. We implement payment gateway integrations, connect CRM systems, integrate marketing tools, and synchronize data across platforms, creating connected ecosystems that automate workflows and enhance functionality.
+              Connect with Payment, CRM, and Business Tools: Extend your application's capabilities by integrating with external services and platforms. We implement payment gateway integrations, connect CRM systems, integrate marketing tools, and synchronize data across platforms, creating connected ecosystems that automate workflows and enhance functionality.
             </p>
 
             <div className="space-y-4">
@@ -512,7 +507,7 @@ Connect with Payment, CRM, and Business Tools: Extend your application's capabil
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-14">
-Our API Development & Integration Process
+            Our API Development & Integration Process
           </h2>
 
           {/* CARDS */}
@@ -521,10 +516,10 @@ Our API Development & Integration Process
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <HandCoins size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-API Strategy & Design
+                API Strategy & Design
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-    We understand your integration needs, design API architectures, define endpoints and data structures, and create comprehensive specifications for reliable implementation.
+                We understand your integration needs, design API architectures, define endpoints and data structures, and create comprehensive specifications for reliable implementation.
 
               </p>
             </div>
@@ -533,10 +528,10 @@ API Strategy & Design
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <Smartphone size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-             Development & Testing
+                Development & Testing
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-     Our developers build secure APIs with proper error handling, implement authentication, conduct thorough testing, and create detailed documentation for seamless adoption.
+                Our developers build secure APIs with proper error handling, implement authentication, conduct thorough testing, and create detailed documentation for seamless adoption.
 
               </p>
             </div>
@@ -545,10 +540,10 @@ API Strategy & Design
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <QrCode size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-Deployment & Monitoring 
+                Deployment & Monitoring
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-   We deploy APIs to production, implement monitoring and analytics, set up alerting systems, and provide ongoing support to ensure reliability and performance.
+                We deploy APIs to production, implement monitoring and analytics, set up alerting systems, and provide ongoing support to ensure reliability and performance.
 
               </p>
             </div>
@@ -561,7 +556,7 @@ Deployment & Monitoring
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-Why Choose 2Digit Innovations for API Development & Integration?
+            Why Choose 2Digit Innovations for API Development & Integration?
           </h2>
 
           {/* CARDS */}
@@ -570,10 +565,10 @@ Why Choose 2Digit Innovations for API Development & Integration?
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <Rocket size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Proven API Expertise
+                Proven API Expertise
               </h3>
               <p className="text-[#fff] leading-relaxed">
-  With 500+ completed projects and 450+ satisfied clients, we've built and integrated countless APIs across industries, ensuring your integrations are secure and reliable.
+                With 500+ completed projects and 450+ satisfied clients, we've built and integrated countless APIs across industries, ensuring your integrations are secure and reliable.
 
               </p>
             </div>
@@ -582,10 +577,10 @@ Proven API Expertise
             <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
               <HandCoins size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Security & Reliability First 
+                Security & Reliability First
               </h3>
               <p className="text-[#fff] leading-relaxed">
-       From authentication to encryption and rate limiting, we implement robust security measures and error handling to protect data and ensure consistent API performance.
+                From authentication to encryption and rate limiting, we implement robust security measures and error handling to protect data and ensure consistent API performance.
 
               </p>
             </div>
@@ -594,10 +589,10 @@ Security & Reliability First
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <MonitorCog size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Focus on Developer Experience 
+                Focus on Developer Experience
               </h3>
               <p className="text-[#fff] leading-relaxed">
-         We build APIs that developers love using, every endpoint, response format, and documentation detail is crafted for clarity, consistency, and ease of integration.
+                We build APIs that developers love using, every endpoint, response format, and documentation detail is crafted for clarity, consistency, and ease of integration.
 
               </p>
             </div>
@@ -637,18 +632,12 @@ Focus on Developer Experience
         </div>
       </section>
 
-      {/* Our Success */}
+
       <Crausel2 />
-
       <Ready />
-
-      {/* FAQ */}
-
       <Faq />
 
-      {/* Footer */}
 
-      <Footer />
     </main>
   );
 }

@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Footer } from "../components/Footer";
-import Navbar from "../components/Navbar";
 
 export default function Home() {
   const plans = [
@@ -86,9 +84,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-
-      {/* Pricing Section with Animation & Purple Glow */}
+     
       <section className="bg-gradient-to-b from-white to-purple-50 py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
@@ -315,7 +311,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

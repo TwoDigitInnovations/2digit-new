@@ -13,8 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 
-import { Footer } from "@/app/components/Footer";
-import Navbar from "@/app/components/Navbar";
 import { Logo } from "@/app/components/Logo";
 import { Crausel1 } from "@/app/components/Crausel1";
 import { Crausel2 } from "@/app/components/Crausel2";
@@ -119,9 +117,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navbar />
-      {/* NAVBAR WITH MOBILE MENU */}
-      {/* Glows behind navbar */}
 
       <div
         className="absolute rounded-full blur-3xl z-0"
@@ -202,16 +197,16 @@ export default function Home() {
         </div>
 
         <h1 className="text-4xl md:text-5xl text-yellow-500 font-bold leading-tight relative z-20">
-        Business Website Development{"  "}
+          Business Website Development{"  "}
           <span className="text-black"> Services | Professional  </span>
           <br className="hidden md:block" />
           <span className="text-yellow-500">
-Online Presence for SMBs
+            Online Presence for SMBs
           </span>
         </h1>
 
         <p className="text-gray-600 mt-6 text-base md:text-lg max-w-3xl mx-auto relative z-20">
-Transform your small or medium business with professional websites that establish credibility and attract customers. At 2Digit Innovations, we specialize in developing cost-effective, feature-rich business websites tailored specifically for SMBs. From local service providers to growing retail businesses, we deliver business web solutions that drive real results across the UK, USA, and India.        </p>
+          Transform your small or medium business with professional websites that establish credibility and attract customers. At 2Digit Innovations, we specialize in developing cost-effective, feature-rich business websites tailored specifically for SMBs. From local service providers to growing retail businesses, we deliver business web solutions that drive real results across the UK, USA, and India.        </p>
 
         <div className="flex justify-center mt-8">
           <button className="relative bg-[#6B5AFF] text-white px-8 py-4 rounded-full shadow-md hover:bg-purple-700 transition text-lg z-10 flex items-center gap-2">
@@ -258,7 +253,7 @@ Transform your small or medium business with professional websites that establis
         <section className="py-8 md:py-16">
           <div className="relative z-10 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
-Complete Business Website Solutions for Your Growth
+              Complete Business Website Solutions for Your Growth
             </h2>
 
             {/* Mobile: Horizontal scroll | Desktop: Wrap & Center */}
@@ -302,11 +297,10 @@ Complete Business Website Solutions for Your Growth
             active:scale-95
             focus:outline-none focus:ring-4 focus:ring-purple-300
             md:hover:scale-105
-            ${
-              isActive
-                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                : "bg-purple-100 text-purple-700 hover:bg-purple-200"
-            }
+            ${isActive
+                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                          : "bg-purple-100 text-purple-700 hover:bg-purple-200"
+                        }
           `}
                     >
                       {feature.title}
@@ -329,11 +323,11 @@ Complete Business Website Solutions for Your Growth
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Professional Design & Branding
-                </h2>
+              Professional Design & Branding
+            </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Build Credibility with Professional Web Presence: Create business websites with polished designs that establish trust and professionalism. We craft clean, modern layouts that reflect your brand identity, showcase your services effectively, highlight customer testimonials, and create compelling about pages, ensuring your business makes strong first impressions online.
+              Build Credibility with Professional Web Presence: Create business websites with polished designs that establish trust and professionalism. We craft clean, modern layouts that reflect your brand identity, showcase your services effectively, highlight customer testimonials, and create compelling about pages, ensuring your business makes strong first impressions online.
             </p>
 
             <div className="space-y-4">
@@ -384,11 +378,11 @@ Build Credibility with Professional Web Presence: Create business websites with 
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Mobile-Responsive Layouts
+              Mobile-Responsive Layouts
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Perfect Experience on Every Device: Ensure your business reaches customers on all devices with fully responsive websites. We design adaptive layouts that look beautiful on desktops, tablets, and smartphones, optimize touch interactions for mobile users, and ensure fast loading, capturing opportunities regardless of how customers find you.
+              Perfect Experience on Every Device: Ensure your business reaches customers on all devices with fully responsive websites. We design adaptive layouts that look beautiful on desktops, tablets, and smartphones, optimize touch interactions for mobile users, and ensure fast loading, capturing opportunities regardless of how customers find you.
             </p>
 
             <div className="space-y-4">
@@ -419,11 +413,11 @@ Perfect Experience on Every Device: Ensure your business reaches customers on al
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-Lead Generation Features
+              Lead Generation Features
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Convert Visitors into Business Opportunities: Maximize business growth with strategic lead capture features. We implement contact forms, call-to-action buttons, click-to-call functionality, and quote request forms, making it easy for potential customers to reach you while capturing valuable leads for your business.
+              Convert Visitors into Business Opportunities: Maximize business growth with strategic lead capture features. We implement contact forms, call-to-action buttons, click-to-call functionality, and quote request forms, making it easy for potential customers to reach you while capturing valuable leads for your business.
             </p>
 
             <div className="space-y-4">
@@ -474,11 +468,11 @@ Convert Visitors into Business Opportunities: Maximize business growth with stra
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-SEO Optimization
+              SEO Optimization
             </h2>
 
             <p className="text-gray-600 mb-8 max-w-xl">
-Get Found by Local Customers Searching Online: Improve visibility in search results with comprehensive SEO optimization. We implement local SEO strategies, optimize page content and meta tags, improve site speed, and ensure mobile-friendliness, helping your business appear when local customers search for your services.
+              Get Found by Local Customers Searching Online: Improve visibility in search results with comprehensive SEO optimization. We implement local SEO strategies, optimize page content and meta tags, improve site speed, and ensure mobile-friendliness, helping your business appear when local customers search for your services.
             </p>
 
             <div className="space-y-4">
@@ -506,7 +500,7 @@ Get Found by Local Customers Searching Online: Improve visibility in search resu
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-14">
-Our Business Website Development Process
+            Our Business Website Development Process
           </h2>
 
           {/* CARDS */}
@@ -515,10 +509,10 @@ Our Business Website Development Process
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <HandCoins size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
- Discovery & Planning 
-               </h3>
+                Discovery & Planning
+              </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-We understand your business, target customers, and goals to design websites that effectively communicate your value proposition and attract qualified leads.
+                We understand your business, target customers, and goals to design websites that effectively communicate your value proposition and attract qualified leads.
 
               </p>
             </div>
@@ -527,10 +521,10 @@ We understand your business, target customers, and goals to design websites that
             <div className="bg-[#f7f7f2] border-[6px] border-[#6B5AFF] rounded-[32px] p-8 shadow-sm">
               <Smartphone size={34} className="text-[#0b1437] mb-6" />
               <h3 className="text-xl font-semibold text-[#4a4a4a] mb-4">
-     Design & Development 
+                Design & Development
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
- Our team creates professional designs that reflect your brand while developers build fast, secure websites with all essential business features and integrations.
+                Our team creates professional designs that reflect your brand while developers build fast, secure websites with all essential business features and integrations.
 
               </p>
             </div>
@@ -542,7 +536,7 @@ We understand your business, target customers, and goals to design websites that
                 Training & Launch
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-We train you on basic content updates, optimize for search engines, set up analytics tracking, then launch your website with ongoing support.
+                We train you on basic content updates, optimize for search engines, set up analytics tracking, then launch your website with ongoing support.
 
               </p>
             </div>
@@ -555,7 +549,7 @@ We train you on basic content updates, optimize for search engines, set up analy
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1437] mb-16">
-Why Choose 2Digit Innovations for Business Website Development?
+            Why Choose 2Digit Innovations for Business Website Development?
           </h2>
 
           {/* CARDS */}
@@ -564,11 +558,11 @@ Why Choose 2Digit Innovations for Business Website Development?
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <Rocket size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Proven SMB Expertise
+                Proven SMB Expertise
               </h3>
               <p className="text-[#fff] leading-relaxed">
-With 500+ completed projects and 450+ satisfied clients, we understand the unique needs and budget constraints of small and medium businesses.
-  
+                With 500+ completed projects and 450+ satisfied clients, we understand the unique needs and budget constraints of small and medium businesses.
+
               </p>
             </div>
 
@@ -576,10 +570,10 @@ With 500+ completed projects and 450+ satisfied clients, we understand the uniqu
             <div className="bg-[#6B5AFF] border-[6px] border-[#6B5AFF] rounded-[36px] p-10">
               <HandCoins size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Cost-Effective Solutions 
+                Cost-Effective Solutions
               </h3>
               <p className="text-[#fff] leading-relaxed">
-From design to features and hosting, we deliver professional websites at prices that make sense for growing businesses without compromising quality.
+                From design to features and hosting, we deliver professional websites at prices that make sense for growing businesses without compromising quality.
 
               </p>
             </div>
@@ -588,10 +582,10 @@ From design to features and hosting, we deliver professional websites at prices 
             <div className="bg-[#6B5AFF] border-[6px] border-white rounded-[36px] p-10">
               <MonitorCog size={34} className="text-[#fff] mb-6" />
               <h3 className="text-xl font-semibold text-[#fff] mb-3">
-Focus on Business Growth
+                Focus on Business Growth
               </h3>
               <p className="text-[#fff] leading-relaxed">
-We build websites that generate leads and customers, every feature from contact forms to SEO is designed to support your business objectives.
+                We build websites that generate leads and customers, every feature from contact forms to SEO is designed to support your business objectives.
               </p>
             </div>
           </div>
@@ -638,10 +632,6 @@ We build websites that generate leads and customers, every feature from contact 
       {/* FAQ */}
 
       <Faq />
-
-      {/* Footer */}
-
-      <Footer />
     </main>
   );
 }

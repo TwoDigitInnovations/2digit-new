@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 
-    // import "./globals.css";
+// import "./globals.css";
 import { Section } from "lucide-react";
 
 export default function Home() {
@@ -156,7 +156,6 @@ export default function Home() {
         }}
       ></div>
 
-      {/* NAVBAR WITH MOBILE MENU */}
       <nav className="relative flex justify-between items-center px-6 md:px-16 py-4 z-50">
         <div className="flex items-center mr-6 md:mr-10">
           <Image
@@ -402,210 +401,210 @@ export default function Home() {
             </div>
           </div>
         </div>
-</div>
+      </div>
 
 
-{/* Dashboard Section */}
- <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#F4F0FF] to-white">
-      
-      {/* Purple Ellipse Background */}
-      <div className="absolute top-1/2 right-[-200px] -translate-y-1/2 w-[500px] h-[500px] bg-purple-400/40 rounded-full blur-[120px]" />
-      <div className="absolute top-20 left-[-200px] w-[400px] h-[400px] bg-purple-300/30 rounded-full blur-[120px]" />
+      {/* Dashboard Section */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#F4F0FF] to-white">
 
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Left Content */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            One Platform. Endless Possibilities.
-          </h2>
+        {/* Purple Ellipse Background */}
+        <div className="absolute top-1/2 right-[-200px] -translate-y-1/2 w-[500px] h-[500px] bg-purple-400/40 rounded-full blur-[120px]" />
+        <div className="absolute top-20 left-[-200px] w-[400px] h-[400px] bg-purple-300/30 rounded-full blur-[120px]" />
 
-          <p className="text-gray-600 mb-8 max-w-xl">
-            Whether you run a single branded outlet or multiple store locations,
-            our all-in-one ordering solution has you covered. Add and manage
-            unlimited stores or restaurants — all under a single subscription.
-            One Subscription. Unlimited Growth.
-          </p>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          <div className="space-y-4">
-            {[
-              "Seamless Management for One or Many Locations",
-              "Centralized Dashboard for Multiple Stores",
-              "Cost-Effective & Scalable",
-              "Reach More Customers, Effortlessly",
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
-              >
-                {item}
-              </div>
-            ))}
+          {/* Left Content */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              One Platform. Endless Possibilities.
+            </h2>
+
+            <p className="text-gray-600 mb-8 max-w-xl">
+              Whether you run a single branded outlet or multiple store locations,
+              our all-in-one ordering solution has you covered. Add and manage
+              unlimited stores or restaurants — all under a single subscription.
+              One Subscription. Unlimited Growth.
+            </p>
+
+            <div className="space-y-4">
+              {[
+                "Seamless Management for One or Many Locations",
+                "Centralized Dashboard for Multiple Stores",
+                "Cost-Effective & Scalable",
+                "Reach More Customers, Effortlessly",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Dashboard Image */}
+          <div className="relative">
+            <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl">
+              <Image
+                src="/images/dashboard.png"
+                alt="Dashboard Preview"
+                width={900}
+                height={600}
+                className="rounded-2xl"
+                priority
+              />
+            </div>
           </div>
         </div>
 
-        {/* Right Dashboard Image */}
-        <div className="relative">
-          <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl">
+        {/* Second Section */}
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* Image */}
+          <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl order-2 lg:order-1">
             <Image
               src="/images/dashboard.png"
-              alt="Dashboard Preview"
+              alt="Mobile App Dashboard"
               width={900}
               height={600}
               className="rounded-2xl"
-              priority
             />
           </div>
-        </div>
-      </div>
 
-      {/* Second Section */}
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Image */}
-        <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl order-2 lg:order-1">
-          <Image
-            src="/images/dashboard.png"
-            alt="Mobile App Dashboard"
-            width={900}
-            height={600}
-            className="rounded-2xl"
-          />
-        </div>
+          {/* Content */}
+          <div className="order-1 lg:order-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Website & Mobile Apps – Your Brand, Everywhere
+            </h2>
 
-        {/* Content */}
-        <div className="order-1 lg:order-2">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Website & Mobile Apps – Your Brand, Everywhere
-          </h2>
+            <p className="text-gray-600 mb-8 max-w-xl">
+              Deliver a seamless and personalized ordering experience through your
+              white-label mobile app or branded website. Expand your reach by
+              accepting orders directly from social platforms like Instagram,
+              Facebook, Twitter, and more.
+            </p>
 
-          <p className="text-gray-600 mb-8 max-w-xl">
-            Deliver a seamless and personalized ordering experience through your
-            white-label mobile app or branded website. Expand your reach by
-            accepting orders directly from social platforms like Instagram,
-            Facebook, Twitter, and more.
-          </p>
-
-          <div className="space-y-4">
-            {[
-              "Build a Strong Multi-Platform Presence",
-              "Attract New Customers with Ease",
-              "Keep Existing Customers Coming Back",
-              "Expand Your Digital Reach",
-              "Grow Your Brand Across Channels",
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
-              >
-                {item}
-              </div>
-            ))}
+            <div className="space-y-4">
+              {[
+                "Build a Strong Multi-Platform Presence",
+                "Attract New Customers with Ease",
+                "Keep Existing Customers Coming Back",
+                "Expand Your Digital Reach",
+                "Grow Your Brand Across Channels",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#F4F0FF] to-white">
-      
-      {/* Purple Ellipse Background */}
-      <div className="absolute top-1/2 right-[-200px] -translate-y-1/2 w-[500px] h-[500px] bg-purple-400/40 rounded-full blur-[120px]" />
-      <div className="absolute top-20 left-[-200px] w-[400px] h-[400px] bg-purple-300/30 rounded-full blur-[120px]" />
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#F4F0FF] to-white">
 
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Left Content */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            One Platform. Endless Possibilities.
-          </h2>
+        {/* Purple Ellipse Background */}
+        <div className="absolute top-1/2 right-[-200px] -translate-y-1/2 w-[500px] h-[500px] bg-purple-400/40 rounded-full blur-[120px]" />
+        <div className="absolute top-20 left-[-200px] w-[400px] h-[400px] bg-purple-300/30 rounded-full blur-[120px]" />
 
-          <p className="text-gray-600 mb-8 max-w-xl">
-            Whether you run a single branded outlet or multiple store locations,
-            our all-in-one ordering solution has you covered. Add and manage
-            unlimited stores or restaurants — all under a single subscription.
-            One Subscription. Unlimited Growth.
-          </p>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          <div className="space-y-4">
-            {[
-              "Seamless Management for One or Many Locations",
-              "Centralized Dashboard for Multiple Stores",
-              "Cost-Effective & Scalable",
-              "Reach More Customers, Effortlessly",
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
-              >
-                {item}
-              </div>
-            ))}
+          {/* Left Content */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              One Platform. Endless Possibilities.
+            </h2>
+
+            <p className="text-gray-600 mb-8 max-w-xl">
+              Whether you run a single branded outlet or multiple store locations,
+              our all-in-one ordering solution has you covered. Add and manage
+              unlimited stores or restaurants — all under a single subscription.
+              One Subscription. Unlimited Growth.
+            </p>
+
+            <div className="space-y-4">
+              {[
+                "Seamless Management for One or Many Locations",
+                "Centralized Dashboard for Multiple Stores",
+                "Cost-Effective & Scalable",
+                "Reach More Customers, Effortlessly",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Dashboard Image */}
+          <div className="relative">
+            <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl">
+              <Image
+                src="/images/dashboard.png"
+                alt="Dashboard Preview"
+                width={900}
+                height={600}
+                className="rounded-2xl"
+                priority
+              />
+            </div>
           </div>
         </div>
 
-        {/* Right Dashboard Image */}
-        <div className="relative">
-          <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl">
+        {/* Second Section */}
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* Image */}
+          <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl order-2 lg:order-1">
             <Image
               src="/images/dashboard.png"
-              alt="Dashboard Preview"
+              alt="Mobile App Dashboard"
               width={900}
               height={600}
               className="rounded-2xl"
-              priority
             />
           </div>
-        </div>
-      </div>
 
-      {/* Second Section */}
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Image */}
-        <div className="relative rounded-3xl bg-[#B7A9FF] p-4 shadow-xl order-2 lg:order-1">
-          <Image
-            src="/images/dashboard.png"
-            alt="Mobile App Dashboard"
-            width={900}
-            height={600}
-            className="rounded-2xl"
-          />
-        </div>
+          {/* Content */}
+          <div className="order-1 lg:order-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Website & Mobile Apps – Your Brand, Everywhere
+            </h2>
 
-        {/* Content */}
-        <div className="order-1 lg:order-2">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Website & Mobile Apps – Your Brand, Everywhere
-          </h2>
+            <p className="text-gray-600 mb-8 max-w-xl">
+              Deliver a seamless and personalized ordering experience through your
+              white-label mobile app or branded website. Expand your reach by
+              accepting orders directly from social platforms like Instagram,
+              Facebook, Twitter, and more.
+            </p>
 
-          <p className="text-gray-600 mb-8 max-w-xl">
-            Deliver a seamless and personalized ordering experience through your
-            white-label mobile app or branded website. Expand your reach by
-            accepting orders directly from social platforms like Instagram,
-            Facebook, Twitter, and more.
-          </p>
-
-          <div className="space-y-4">
-            {[
-              "Build a Strong Multi-Platform Presence",
-              "Attract New Customers with Ease",
-              "Keep Existing Customers Coming Back",
-              "Expand Your Digital Reach",
-              "Grow Your Brand Across Channels",
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
-              >
-                {item}
-              </div>
-            ))}
+            <div className="space-y-4">
+              {[
+                "Build a Strong Multi-Platform Presence",
+                "Attract New Customers with Ease",
+                "Keep Existing Customers Coming Back",
+                "Expand Your Digital Reach",
+                "Grow Your Brand Across Channels",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="border border-purple-300 rounded-full px-6 py-3 text-gray-800 bg-white/70 backdrop-blur"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    
+      </section>
+
 
       {/* Our Success */}
       <section className="relative py-20 md:py-32 bg-white">
@@ -788,7 +787,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+    
 
       <footer className="relative bg-[#6B5AFF] text-white py-16 overflow-hidden rounded-t-3xl">
         {/* Decorative Ellipse */}
@@ -866,10 +865,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
-        {/* <div className="mt-12 text-center text-purple-200 text-sm">
-    &copy; {new Date().getFullYear()} 2digitinnovations. All rights reserved.
-  </div> */}
+
       </footer>
     </main>
   );
